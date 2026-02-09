@@ -4,12 +4,14 @@ import {
     Drawer,
     DrawerClose,
     DrawerContent,
+    DrawerFooter,
     DrawerHeader,
     DrawerTitle,
     DrawerTrigger,
 } from "@/components/ui/drawer";
 import { scrollToSection } from "@/lib/utils";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
 
@@ -80,6 +82,12 @@ export function CustomDrawer() {
                         ))}
                     </ul>
                 </nav>
+                <DrawerFooter>
+                    <div className="flex gap-1 items-center justify-center text-sm">
+                        <span className="tracking-wider">© 2026. All rights</span>
+                        <Link href="/auth/login" className="cursor-default">reserved</Link>
+                    </div>
+                </DrawerFooter>
             </DrawerContent>
         </Drawer>
     );
