@@ -37,7 +37,7 @@ export function ProjectCardCompact({ project, onClick }: ProjectCardCompactProps
                 />
             </div>
             <div className="px-3 py-2.5 shrink-0 bg-background flex flex-row items-center justify-between gap-2">
-                <span className="font-fraunces text-sm font-semibold text-foreground min-w-0 truncate flex-1">
+                <span className=" text-sm font-semibold text-foreground min-w-0 truncate flex-1">
                     {project.name}
                 </span>
                 <Button

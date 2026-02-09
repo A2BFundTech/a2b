@@ -29,7 +29,7 @@ export function Spain() {
             }`}
         >
             <div className="container mx-auto px-4">
-                <h2 className="font-fraunces text-4xl md:text-5xl font-semibold text-[#917355] text-center mb-16">
+                <h2 className=" text-4xl md:text-5xl font-semibold text-[#917355] text-center mb-16">
                     {t("title")}
                 </h2>
 
@@ -39,7 +39,7 @@ export function Spain() {
                             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                                 <Globe className="w-5 h-5 text-primary" color="#917355"/>
                             </div>
-                            <h3 className="font-fraunces text-xl font-semibold text-foreground">
+                            <h3 className=" text-xl font-semibold text-foreground">
                                 {t("subtitle")}
                             </h3>
                         </div>
@@ -72,7 +72,7 @@ export function Spain() {
                             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                                 <TrendingUp className="w-5 h-5 text-primary" color="#917355" />
                             </div>
-                            <h3 className="font-fraunces text-xl font-semibold text-foreground">
+                            <h3 className=" text-xl font-semibold text-foreground">
                                 {t("economy_title")}
                             </h3>
                         </div>
@@ -102,7 +102,7 @@ export function Spain() {
                             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                                 <Sun className="w-5 h-5 text-primary" color="#917355"/>
                             </div>
-                            <h3 className="font-fraunces text-xl font-semibold text-foreground">
+                            <h3 className=" text-xl font-semibold text-foreground">
                                 {t("climate_title")}
                             </h3>
                         </div>
@@ -147,7 +147,7 @@ export function Spain() {
 
                 {/* Investor Benefits */}
                 <div>
-                    <h3 className="font-fraunces text-2xl md:text-3xl font-semibold text-[#917355] text-center mb-8">
+                    <h3 className=" text-2xl md:text-3xl font-semibold text-[#917355] text-center mb-8">
                         {t("investor_title")}
                     </h3>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">

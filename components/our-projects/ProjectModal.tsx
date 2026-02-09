@@ -49,10 +49,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     </Button>
                 </div>
                 <div className="p-4 pb-8">
-                    <h2 className="font-fraunces text-xl font-semibold text-foreground mb-2">
+                    <h2 className=" text-xl font-semibold text-foreground mb-2">
                         {project.name}
                     </h2>
-                    <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#F5F5DC] relative mb-4">
+                    <div className="aspect-4/3 rounded-xl overflow-hidden bg-[#F5F5DC] relative mb-4">
                         <Carousel
                             opts={{ align: "start", loop: true }}
                             orientation="horizontal"

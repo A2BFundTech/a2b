@@ -51,7 +51,7 @@ export const OurSevices = () => {
                                         color="#917355"
                                     />
                                 </div>
-                                <h3 className="font-fraunces text-xl font-semibold text-foreground">
+                                <h3 className="text-xl font-semibold text-foreground">
                                     {t(`${key}.title`)}
                                 </h3>
                             </div>

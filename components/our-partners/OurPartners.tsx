@@ -40,7 +40,7 @@ export function OurPartners() {
         <section id="partners" ref={sectionRef} className="py-10 md:py-20 bg-[#F7F5F2]">
             <div className="container mx-auto px-4">
                 <h2
-                    className={`font-fraunces text-4xl md:text-5xl font-semibold text-[#917355] text-center mb-12 md:mb-16 transition-all duration-500 ${
+                    className={`text-4xl md:text-5xl font-semibold text-[#917355] text-center mb-12 md:mb-16 transition-all duration-500 ${
                         isInView
                             ? "opacity-100 translate-y-0"
                             : "opacity-0 translate-y-5"

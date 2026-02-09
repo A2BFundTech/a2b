@@ -76,7 +76,7 @@ export function ProjectCard({ project, className, onClick }: ProjectCardProps) {
             </div>
             <CardHeader className="px-3 py-2.5 h-[70px] shrink-0 flex flex-row items-center justify-between gap-2">
                 <div className="min-w-0 flex-1">
-                    <CardTitle className="font-fraunces text-sm leading-tight">
+                    <CardTitle className=" text-sm leading-tight">
                         {project.name}
                     </CardTitle>
                     <CardDescription className="text-[#968c81] text-xs line-clamp-2 mt-0.5">

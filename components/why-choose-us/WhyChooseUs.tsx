@@ -71,7 +71,7 @@ export function WhyChooseUs() {
             </div>
 
             <div className="container mx-auto px-4 z-10 relative">
-                <h2 className="font-fraunces text-4xl md:text-5xl font-semibold text-[#917355] text-center mb-12 md:mb-16">
+                <h2 className=" text-4xl md:text-5xl font-semibold text-[#917355] text-center mb-12 md:mb-16">
                     {t("title")}
                 </h2>
 
@@ -86,7 +86,7 @@ export function WhyChooseUs() {
                             value={key}
                             className="px-4 md:px-6 bg-white"
                         >
-                            <AccordionTrigger className="text-left font-fraunces text-base md:text-lg font-semibold text-foreground hover:no-underline py-5 gap-3 [&>svg]:shrink-0">
+                            <AccordionTrigger className="text-left  text-base md:text-lg font-semibold text-foreground hover:no-underline py-5 gap-3 [&>svg]:shrink-0">
                                 <span className="flex items-center gap-3">
                                     <span className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                                         <Icon

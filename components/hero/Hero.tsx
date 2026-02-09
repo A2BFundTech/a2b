@@ -19,6 +19,7 @@ export const Hero = () => {
                 fill
                 priority
                 className="object-cover"
+                sizes="100vw"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/35 to-transparent" />
 
