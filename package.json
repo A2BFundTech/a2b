@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "set-admin": "node scripts/set-admin.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -16,6 +17,8 @@
     "dotenv": "^17.2.4",
     "dotted-map": "^2.2.3",
     "embla-carousel-react": "^8.6.0",
+    "firebase": "^12.9.0",
+    "firebase-admin": "^13.6.1",
     "lucide-react": "^0.563.0",
     "motion": "^12.33.0",
     "next": "16.1.6",
