@@ -6,15 +6,14 @@ import { RiskManagement } from "@/components/block/risk-management/RiskManagemen
 import Header from "@/components/block/header/Header";
 import { Hero } from "@/components/block/hero/Hero";
 import { OurPartners } from "@/components/block/our-partners/OurPartners";
-import { OurProjects, type Project } from "@/components/block/our-projects/OurProjects";
 import { OurTeam } from "@/components/block/our-team/OurTeam";
 import { OurSevices } from "@/components/block/our-services/OurSevices";
 import { Spain } from "@/components/block/spain/Spain";
 import { WhyChooseUs } from "@/components/block/why-choose-us/WhyChooseUs";
+import { OurProjects } from "@/components/block/our-projects/OurProjects";
 
 export default function Home() {
     // TODO: загружать проекты из БД и передавать в OurProjects
-    const projects: Project[] = [];
 
     return (
         <div className="flex flex-col bg-white p-0 m-0">
@@ -24,7 +23,7 @@ export default function Home() {
             <Spain />
             <OurSevices />
             <WhyChooseUs />
-            <OurProjects projects={projects} />
+            <OurProjects  />
             <OurPartners />
             <InvestmentLifecycle />
             <RiskManagement />
