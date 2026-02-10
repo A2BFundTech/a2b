@@ -60,11 +60,11 @@ export default function AppSidebar() {
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
                                     <Link
-                                        href="/panel"
+                                        href="/"
                                         onClick={mobileCloseMenu}
                                     >
                                         <House />
-                                        <span>Home</span>
+                                        <span>Website</span>
                                     </Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
