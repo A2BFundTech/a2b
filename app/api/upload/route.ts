@@ -4,14 +4,14 @@ import cloudinary from "@/lib/cloudinary";
 import { ApiError, getErrorMessage } from "@/lib/api-error";
 import { requireAdmin } from "@/server/requireAuth/requireAuth";
 
-const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
+const MAX_SIZE = 10 * 1024 * 1024;
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 
 export async function POST(req: Request) {
     try {
         await requireAdmin(req);
 
-        const formData = await req.formData();
+        const formData = await req.formData();      
         const file = formData.get("file");
 
         if (!file || !(file instanceof File)) {

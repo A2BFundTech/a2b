@@ -1,13 +1,15 @@
 import { auth } from "@/lib/firebase";
-import type { Project } from "@/components/our-projects/types";
+import { Project, ProjectTranslations } from "../model/types";
+
 
 export type CreateProjectInput = {
-    name: string;
-    description: string;
+    translations: ProjectTranslations;
     imageUrls: string[];
 };
 
-export async function createProject(input: CreateProjectInput): Promise<Project> {
+export async function createProject(
+    input: CreateProjectInput,
+): Promise<Project> {
     const user = auth.currentUser;
     if (!user) {
         throw new Error("Not authenticated");
@@ -35,4 +37,3 @@ export async function createProject(input: CreateProjectInput): Promise<Project>
 
     return res.json();
 }
-

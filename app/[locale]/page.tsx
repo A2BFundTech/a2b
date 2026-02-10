@@ -1,16 +1,16 @@
-import { InvestmentLifecycle } from "@/components/investment-lifecycle/InvestmentLifecycle";
-import { Company } from "@/components/company/Company";
-import { ContactForn } from "@/components/contact-form/ContactForn";
-import { Footer } from "@/components/footer/Footer";
-import { RiskManagement } from "@/components/risk-management/RiskManagement";
-import Header from "@/components/header/Header";
-import { Hero } from "@/components/hero/Hero";
-import { OurPartners } from "@/components/our-partners/OurPartners";
-import { OurProjects, type Project } from "@/components/our-projects/OurProjects";
-import { OurTeam } from "@/components/our-team/OurTeam";
-import { OurSevices } from "@/components/our-services/OurSevices";
-import { Spain } from "@/components/spain/Spain";
-import { WhyChooseUs } from "@/components/why-choose-us/WhyChooseUs";
+import { InvestmentLifecycle } from "@/components/block/investment-lifecycle/InvestmentLifecycle";
+import { Company } from "@/components/block/company/Company";
+import { ContactForn } from "@/components/block/contact-form/ContactForn";
+import { Footer } from "@/components/block/footer/Footer";
+import { RiskManagement } from "@/components/block/risk-management/RiskManagement";
+import Header from "@/components/block/header/Header";
+import { Hero } from "@/components/block/hero/Hero";
+import { OurPartners } from "@/components/block/our-partners/OurPartners";
+import { OurProjects, type Project } from "@/components/block/our-projects/OurProjects";
+import { OurTeam } from "@/components/block/our-team/OurTeam";
+import { OurSevices } from "@/components/block/our-services/OurSevices";
+import { Spain } from "@/components/block/spain/Spain";
+import { WhyChooseUs } from "@/components/block/why-choose-us/WhyChooseUs";
 
 export default function Home() {
     // TODO: загружать проекты из БД и передавать в OurProjects

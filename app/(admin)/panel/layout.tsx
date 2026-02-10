@@ -50,8 +50,8 @@ export default function AdminPanelLayout({
         <div className="min-h-screen bg-slate-50 flex flex-col">
             <SidebarProvider>
                 <AppSidebar />
-                <main className="flex max-h-screen flex-1 flex-col">
-                    <div className="bg-sidebar border-sidebar-border flex items-center gap-2 border-b p-2">
+                <main className="flex max-h-screen flex-1 flex-col ">
+                    <div className="bg-sidebar border-sidebar-border flex items-center gap-2 border-b p-2 ">
                         <SidebarTrigger className="size-8 cursor-pointer" />
                         <Separator
                             orientation="vertical"
@@ -59,7 +59,7 @@ export default function AdminPanelLayout({
                         />
                         <AppBread />
                     </div>
-                    <section className="relative flex flex-1 overflow-hidden shadow-[inset_0_0_10px_0] shadow-black/10">
+                    <section className="relative flex-1 overflow-auto shadow-[inset_0_0_10px_0] shadow-black/10">
                         {children}
                     </section>
                 </main>

@@ -133,7 +133,9 @@
         }
     },
     "OurProjects": {
-        "title": "Our Projects"
+        "title": "Our Projects",
+        "hide": "Hide",
+        "show_more": "Show more ({count})"
     },
     "OurPartners": {
         "title": "Our Partners",

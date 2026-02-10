@@ -136,7 +136,9 @@
         }
     },
     "OurProjects": {
-        "title": "Nuestros proyectos"
+        "title": "Nuestros proyectos",
+        "hide": "Ocultar",
+        "show_more": "Ver más ({count})"
     },
     "OurPartners": {
         "title": "Nuestros socios",

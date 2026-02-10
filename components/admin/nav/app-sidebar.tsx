@@ -15,7 +15,13 @@ import {
     useSidebar,
 } from "@/components/ui/sidebar";
 
-import { House, UserStar, FolderPlus, Handshake } from "lucide-react";
+import {
+    House,
+    UserStar,
+    FolderPlus,
+    Handshake,
+    PencilLine,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 
@@ -23,10 +29,10 @@ export default function AppSidebar() {
     const { open, setOpenMobile, openMobile } = useSidebar();
 
     const mobileCloseMenu = () => {
-        if ( openMobile ) {
+        if (openMobile) {
             setOpenMobile(false);
         }
-    }
+    };
     return (
         <Sidebar collapsible="icon" className="font-sans">
             <SidebarHeader className="flex flex-row items-center justify-start gap-5 overflow-hidden">
@@ -53,7 +59,10 @@ export default function AppSidebar() {
                         <SidebarMenu>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <Link href="/panel" onClick={mobileCloseMenu}>
+                                    <Link
+                                        href="/panel"
+                                        onClick={mobileCloseMenu}
+                                    >
                                         <House />
                                         <span>Home</span>
                                     </Link>
@@ -61,7 +70,10 @@ export default function AppSidebar() {
                             </SidebarMenuItem>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <Link href="/panel/projects" onClick={mobileCloseMenu}>
+                                    <Link
+                                        href="/panel/projects-add"
+                                        onClick={mobileCloseMenu}
+                                    >
                                         <FolderPlus />
                                         <span>Add projects</span>
                                     </Link>
@@ -69,7 +81,21 @@ export default function AppSidebar() {
                             </SidebarMenuItem>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <Link href="/panel/partners" onClick={mobileCloseMenu}>
+                                    <Link
+                                        href="/panel/projects-edit"
+                                        onClick={mobileCloseMenu}
+                                    >
+                                        <PencilLine />
+                                        <span>Edit projects</span>
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link
+                                        href="/panel/partners"
+                                        onClick={mobileCloseMenu}
+                                    >
                                         <Handshake />
                                         <span>Add partners</span>
                                     </Link>
