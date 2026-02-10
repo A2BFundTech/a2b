@@ -2,11 +2,11 @@
 
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { Search, Scale, Languages, Building2 } from "lucide-react";
+import { Search, Scale, Languages, Building2, TrendingUp } from "lucide-react";
 import { useInView } from "@/lib/use-in-view";
 import type { LucideIcon } from "lucide-react";
 
-type OurServicesItemKey = "selection" | "legal" | "translation" | "management";
+type OurServicesItemKey = "selection" | "legal" | "translation" | "management" | "sale";
 
 interface OurServicesItem {
     key: OurServicesItemKey;
@@ -18,18 +18,19 @@ const services: OurServicesItem[] = [
     { key: "legal", icon: Scale },
     { key: "translation", icon: Languages },
     { key: "management", icon: Building2 },
+    { key: "sale", icon: TrendingUp },
 ];
 
 export const OurSevices = () => {
     const t = useTranslations("OurServices");
     const sectionRef = useRef<HTMLElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
     return (
         <section
             id="services"
             ref={sectionRef}
-            className={`py-10 md:py-20 min-h-screen md:min-h-0 transition-all duration-500 ${
+            className={`py-10 md:py-20 min-h-screen md:min-h-0 transition-all duration-200 ${
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
         >
@@ -42,7 +43,7 @@ export const OurSevices = () => {
                     {services.map(({ key, icon: Icon }) => (
                         <div
                             key={key}
-                            className="rounded-xl p-6 shadow-sm border border-[#91735556] hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                            className={`rounded-xl p-6 shadow-sm border border-[#91735556] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 ${key === "sale" ? "md:col-span-2" : ""}`}
                         >
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">

@@ -1,12 +1,3 @@
-/**
- * Выдаёт пользователю роль админа (custom claim admin: true).
- * Запуск из корня проекта:
- *   node scripts/set-admin.mjs <email>
- *   node scripts/set-admin.mjs <uid>
- *
- * Требует в .env: FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY
- */
-
 import "dotenv/config";
 import admin from "firebase-admin";
 

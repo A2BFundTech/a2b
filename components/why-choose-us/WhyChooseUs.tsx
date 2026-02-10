@@ -48,13 +48,13 @@ const items: WhyChooseUsItem[] = [
 export function WhyChooseUs() {
     const t = useTranslations("WhyChooseUs");
     const sectionRef = useRef<HTMLElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
     return (
         <section
             id="why-choose-us"
             ref={sectionRef}
-            className={`py-10 md:py-20 bg-[#F7F5F2] transition-all duration-500 ${
+            className={`py-10 md:py-20 bg-[#F7F5F2] transition-all duration-200 ${
                 isInView
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-5"

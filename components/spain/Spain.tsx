@@ -18,13 +18,13 @@ import { useInView } from "@/lib/use-in-view";
 export function Spain() {
     const t = useTranslations("Spain");
     const sectionRef = useRef<HTMLElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
     return (
         <section
             id="spain"
             ref={sectionRef}
-            className={`py-20 bg-[#F7F5F2] transition-all duration-500 ${
+            className={`py-20 bg-[#F7F5F2] transition-all duration-200 ${
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
         >
@@ -97,7 +97,7 @@ export function Spain() {
                     </div>
 
                     {/* Climate Card */}
-                    <div className="bg-background rounded-xl p-6 shadow-sm">
+                    <div className="bg-background rounded-xl p-6 shadow-sm md:col-span-2 lg:col-span-1">
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                                 <Sun className="w-5 h-5 text-primary" color="#917355"/>

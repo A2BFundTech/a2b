@@ -17,13 +17,13 @@ export function InvestmentLifecycle() {
             id="lifecycle"
             ref={sectionRef}
             key={locale}
-            className={`py-10 md:py-20 bg-background transition-all duration-500 ${
+            className={`py-10 md:py-20 bg-background transition-all duration-200 ${
                 isInView
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-5"
             }`}
         >
-            <div className="container mx-auto px-4 md:max-w-5xl transition-all duration-500">
+            <div className="container mx-auto px-4 md:max-w-5xl transition-all duration-200">
                 <h2 className=" text-4xl md:text-5xl font-semibold text-[#917355] text-center mb-12 md:mb-16">
                     {t("main_title")}
                 </h2>
@@ -37,7 +37,7 @@ export function InvestmentLifecycle() {
                         return (
                             <div
                                 key={step}
-                                className={`grid md:grid-cols-2 gap-5 md:gap-10 items-center transition-all duration-500 ${
+                                className={`grid md:grid-cols-2 gap-5 md:gap-10 items-center transition-all duration-200 ${
                                     isInView
                                         ? "opacity-100 translate-y-0"
                                         : "opacity-0 translate-y-5"

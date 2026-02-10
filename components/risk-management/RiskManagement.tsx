@@ -24,13 +24,13 @@ const items: RiskManagementItem[] = [
 export function RiskManagement() {
     const t = useTranslations("RiskManagement");
     const sectionRef = useRef<HTMLElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
     return (
         <section
             id="risk-management"
             ref={sectionRef}
-            className={`py-10 md:py-20 bg-[#F7F5F2] transition-all duration-500 ${
+            className={`py-10 md:py-20 bg-[#F7F5F2] transition-all duration-200 ${
                 isInView
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-5"
@@ -45,7 +45,7 @@ export function RiskManagement() {
                     {items.map(({ key, icon: Icon }, index) => (
                         <Card
                             key={key}
-                            className={`bg-background border border-[#91735556] rounded-xl shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${
+                            className={`bg-background border border-[#91735556] rounded-xl shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${
                                 isInView
                                     ? "opacity-100 translate-y-0"
                                     : "opacity-0 translate-y-6"

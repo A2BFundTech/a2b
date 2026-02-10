@@ -75,13 +75,13 @@ const cards: Cards[] = [
 export const Company = () => {
     const t = useTranslations("Company");
     const sectionRef = useRef<HTMLElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+    const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
     return (
         <section
             id="company"
             ref={sectionRef}
-            className={`relative w-full overflow-hidden py-15 p-3 flex flex-col justify-center items-center transition-all duration-300 ${
+            className={`relative w-full overflow-hidden py-15 p-3 flex flex-col justify-center items-center transition-all duration-200 ${
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
         >
@@ -92,7 +92,7 @@ export const Company = () => {
                 </div>
                 <div className="md:hidden w-full max-w-xs">
                     <Carousel
-                        opts={{ align: "start", loop: true }}
+                        opts={{ align: "start", loop: false }}
                         orientation="vertical"
                         className="w-full h-[400px]"
                     >

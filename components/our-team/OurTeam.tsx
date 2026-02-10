@@ -29,7 +29,7 @@ function TeamCard({
 }) {
     return (
         <Card
-            className={`bg-background border border-[#91735556] rounded-xl shadow-sm flex flex-col items-center transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${
+            className={`bg-background border border-[#91735556] rounded-xl shadow-sm flex flex-col items-center transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${
                 isInView
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
@@ -54,13 +54,13 @@ function TeamCard({
 export function OurTeam() {
     const t = useTranslations("OurTeam");
     const sectionRef = useRef<HTMLElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
     return (
         <section
             id="team"
             ref={sectionRef}
-            className={`py-10 md:py-20 bg-[#F7F5F2] transition-all duration-500 ${
+            className={`py-10 md:py-20 bg-[#F7F5F2] transition-all duration-200 ${
                 isInView
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-5"

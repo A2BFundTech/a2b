@@ -98,6 +98,10 @@
         "management": {
             "title": "Gestión de propiedades",
             "description": "Nos encargamos del alquiler, mantenimiento técnico, atención a huéspedes y control de rentabilidad. Garantizamos informes transparentes y resultados estables."
+        },
+        "sale": {
+            "title": "Venta del activo y materialización del beneficio",
+            "description": "Acompañamos la venta del activo en el momento de mayor atractivo inversor — a inversores privados, family offices o fondos de inversión. La venta se realiza conforme a una estrategia previamente definida, permitiendo al inversor obtener una rentabilidad objetivo, previsible y fijar el resultado de la inversión."
         }
     },
     "WhyChooseUs": {

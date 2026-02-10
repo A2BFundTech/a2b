@@ -68,7 +68,7 @@ export function OurProjects({ projects: projectsProp }: OurProjectsProps) {
     const projects = projectsProp.length > 0 ? projectsProp : mockProjects;
     const [modalProject, setModalProject] = useState<Project | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
     return (
         <section
@@ -80,7 +80,7 @@ export function OurProjects({ projects: projectsProp }: OurProjectsProps) {
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30 mt-50 hidden md:block"></div>
             <div className="container mx-auto px-4">
                 <h2
-                    className={` text-4xl md:text-5xl font-semibold text-[#917355] text-center mb-12 md:mb-16 transition-all duration-300 `}
+                    className={` text-4xl md:text-5xl font-semibold text-[#917355] text-center mb-12 md:mb-16 transition-all duration-200 `}
                 >
                     {t("title")}
                 </h2>
@@ -98,7 +98,7 @@ export function OurProjects({ projects: projectsProp }: OurProjectsProps) {
                                     className="pl-0 basis-full"
                                 >
                                     <div
-                                        className={`transition-all duration-300 ${
+                                        className={`transition-all duration-200 ${
                                             isInView
                                                 ? "opacity-100 translate-y-0"
                                                 : "opacity-0 translate-y-6"
@@ -137,7 +137,7 @@ export function OurProjects({ projects: projectsProp }: OurProjectsProps) {
                         {projects.map((project, index) => (
                             <div
                                 key={project.id}
-                                className={`transition-all duration-300 ${
+                                className={`transition-all duration-200 ${
                                     isInView
                                         ? "opacity-100 translate-y-0"
                                         : "opacity-0 translate-y-6"

@@ -13,6 +13,7 @@ import { scrollToSection } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { HiMenuAlt2 } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
 
 type SectionId = "company" | "projects" | "services" | "contact";
@@ -29,8 +30,8 @@ interface AnchorItem {
 
 const ANCHOR_ITEMS: AnchorItem[] = [
     { id: "company", labelKey: "nav_home" },
-    { id: "projects", labelKey: "nav_our_projects" },
     { id: "services", labelKey: "nav_our_services" },
+    { id: "projects", labelKey: "nav_our_projects" },
     { id: "contact", labelKey: "nav_contact_us" },
 ];
 
@@ -38,12 +39,12 @@ export function CustomDrawer() {
     const t = useTranslations("Header");
 
     return (
-        <Drawer direction="left">
+        <Drawer direction="left" >
             <DrawerTrigger
                 asChild
                 className="p-2 bg-[#F7F5F2] rounded-xl shadow-md"
             >
-                <HiOutlineMenuAlt2 size={45} color="#917355" className="p-2" />
+                <HiMenuAlt2 size={45} color="#917355" className="p-2" />
             </DrawerTrigger>
             <DrawerContent>
                 <DrawerHeader className="px-4 py-2 mt-4">
@@ -59,7 +60,7 @@ export function CustomDrawer() {
                         </button>
                     </DrawerClose>
                 </DrawerHeader>
-                <nav className="px-4 py-2">
+                <nav className="px-4 py-2 font-playfair">
                     <ul className="flex flex-col gap-4">
                         {ANCHOR_ITEMS.map(({ id, labelKey }) => (
                             <li key={id}>

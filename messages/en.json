@@ -95,6 +95,10 @@
         "management": {
             "title": "Property management",
             "description": "We handle rentals, technical maintenance, guest services and profitability control. You receive transparent reporting and consistent financial performance."
+        },
+        "sale": {
+            "title": "Asset Sale & Profit Realization",
+            "description": "We manage the sale of the asset at the peak of its investment attractiveness — to private investors, family offices or investment funds. The sale follows a pre-defined strategy, allowing the investor to achieve the targeted, forecasted return and lock in the investment profit."
         }
     },
     "WhyChooseUs": {

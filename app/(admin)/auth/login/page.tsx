@@ -5,7 +5,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
 import { auth } from "@/lib/firebase";
 import {
     Form,
@@ -27,11 +26,12 @@ import { login } from "@/features/auth/hooks/useLogin";
 import { fetchAuthUser } from "@/features/auth/api/fetchAuthUser";
 import { logout } from "@/features/auth/hooks/useLogout";
 
+const PANEL_PATH = "/panel";
+
 export default function LoginPage() {
     const [serverError, setServerError] = useState("");
     const [status, setStatus] = useState<"loading" | "show-login">("loading");
     const router = useRouter();
-    const locale = useLocale();
 
     useLayoutEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -41,18 +41,17 @@ export default function LoginPage() {
             }
             try {
                 const me = await fetchAuthUser();
-                console.log(me);
                 if (me.isAdmin) {
-                    router.replace(`/${locale}/auth/admin`);
+                    router.replace(PANEL_PATH);
                     return;
                 }
-                router.replace(`/${locale}`);
+                router.replace("/");
             } catch {
                 setStatus("show-login");
             }
         });
         return () => unsubscribe();
-    }, [router, locale]);
+    }, [router]);
 
     const form = useForm<LoginFormValues>({
         resolver: zodResolver(loginSchema),
@@ -73,12 +72,12 @@ export default function LoginPage() {
 
             if (!me.isAdmin) {
                 await logout();
-                setServerError("");
-                router.replace(`/${locale}`);
+                setServerError("Доступ только для администраторов");
+                router.replace("/");
                 return;
             }
 
-            router.push(`/${locale}/auth/admin`);
+            router.push(PANEL_PATH);
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (err: any) {
             setServerError("Неверный логин или пароль");

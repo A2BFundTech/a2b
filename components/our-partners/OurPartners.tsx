@@ -34,7 +34,7 @@ const partners: Partner[] = [
 export function OurPartners() {
     const t = useTranslations("OurPartners");
     const sectionRef = useRef<HTMLElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: true,  });
 
     return (
         <section id="partners" ref={sectionRef} className="py-10 md:py-20 bg-[#F7F5F2]">
