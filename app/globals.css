@@ -80,6 +80,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-width: 20rem;
+  --sidebar-width-mobile: 30rem;
+
 }
 
 .dark {
@@ -116,6 +119,21 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@keyframes project-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-reveal {
+  animation: project-reveal 0.4s ease-out forwards;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -123,6 +141,5 @@
   body {
     @apply bg-background text-foreground;
     @apply font-fraunces;
-
   }
 }
