@@ -143,3 +143,24 @@
     @apply font-fraunces;
   }
 }
+
+/* Убрать стрелочки у всех number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield;
+}
+
+/* Отключить изменение значения скроллом/тачпадом */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]:focus {
+  -moz-appearance: textfield;
+}

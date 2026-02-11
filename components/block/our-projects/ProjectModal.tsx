@@ -14,11 +14,10 @@ import { Button } from "@/components/ui/button";
 
 import { placeholderImages } from "@/lib/utils";
 import {
-    Project,
-    getProjectDescription,
-    getProjectName,
+    Project
 } from "@/features/card/model/types";
 import { useEffect, useState } from "react";
+import { ProjectLocale } from "@/features/card/validation/validation";
 
 type ProjectModalProps = {
     project: Project;
@@ -26,9 +25,8 @@ type ProjectModalProps = {
 };
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
-    const locale = useLocale();
-    const name = getProjectName(project, locale);
-    const description = getProjectDescription(project, locale);
+    const locale = useLocale() as ProjectLocale;
+
     const [activeImage, setActiveImage] = useState<string | null>(null);
     const urls =
         project.imageUrls.length > 0
@@ -50,7 +48,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             className="fixed inset-0 z-50 overflow-y-auto bg-background p-4 md:flex md:items-center md:justify-center md:bg-black/50 md:p-6"
             role="dialog"
             aria-modal="true"
-            aria-label={name}
+            aria-label={project.translations[locale].name}
             onClick={onClose}
         >
             <div
@@ -59,7 +57,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             >
                 <div className="sticky top-0 z-10 flex justify-between p-3 bg-background/95 backdrop-blur border-b border-[#91735520] rounded-t-xl md:rounded-t-xl">
                     <h2 className=" text-2xl font-semibold text-foreground">
-                        {name}
+                        {project.translations[locale].name}
                     </h2>
                     <Button
                         variant="ghost"
@@ -128,7 +126,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         </div>
                     )}
                     <p className="text-[#968c81] text-sm leading-relaxed">
-                        {description}
+                        {project.translations[locale].description}
                     </p>
                 </div>
             </div>

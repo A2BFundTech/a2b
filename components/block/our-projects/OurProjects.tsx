@@ -9,6 +9,7 @@ import { ProjectModal } from "./ProjectModal";
 import { Project } from "@/features/card/model/types";
 import { useProjects } from "@/features/card/hooks/useProjects";
 import { AnimatePresence, motion } from "motion/react";
+import { Loader, Loader2 } from "lucide-react";
 
 const INITIAL_COUNT = 3;
 
@@ -25,6 +26,15 @@ export function OurProjects() {
     const visibleProjects = showAll
         ? projects
         : projects.slice(0, INITIAL_COUNT);
+
+
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center h-full">
+                <Loader2 className="size-10 animate-spin" />
+            </div>
+        )
+    }
 
 
     return (

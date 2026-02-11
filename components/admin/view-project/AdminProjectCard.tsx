@@ -18,14 +18,19 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Trash2, PencilLine, Loader2 } from "lucide-react";
 import { useDeleteProject } from "@/features/card/hooks/useDeleteProject";
-import { getProjectName, type Project } from "@/features/card/model/types";
+import { Project } from "@/features/card/model/types";
+import { useLocale } from "next-intl";
+import { ProjectLocale } from "@/features/card/validation/validation";
 
 type AdminProjectCardProps = {
     project: Project;
 };
 
 export function AdminProjectCard({ project }: AdminProjectCardProps) {
-    const name = getProjectName(project, "en");
+
+    const locale = useLocale() as ProjectLocale;
+
+    
     const urls = project.imageUrls.length > 0 ? project.imageUrls : [];
 
     const { mutate: deleteProject, isPending } = useDeleteProject();
@@ -67,7 +72,7 @@ export function AdminProjectCard({ project }: AdminProjectCardProps) {
             <CardHeader className="px-3 py-2 h-[70px] shrink-0 flex flex-row items-center justify-between gap-2">
                 <div className="min-w-0 flex justify-between items-center w-full">
                     <CardTitle className="text-sm leading-tight">
-                        {name}
+                        {project.translations[locale].name}
                     </CardTitle>
                     <CardDescription className="text-[#968c81] text-xs line-clamp-2 mt-0.5 flex gap-2">
                         <Button variant={"outline"} size={"icon"} >

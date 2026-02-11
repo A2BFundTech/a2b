@@ -18,11 +18,10 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import {
-    Project,
-    getProjectDescription,
-    getProjectName,
+    Project
 } from "@/features/card/model/types";
 import { placeholderImages } from "@/lib/utils";
+import { ProjectLocale } from "@/features/card/validation/validation";
 
 type ProjectCardProps = {
     project: Project;
@@ -31,9 +30,8 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
-    const locale = useLocale();
-    const name = getProjectName(project, locale);
-    const description = getProjectDescription(project, locale);
+    const locale = useLocale() as ProjectLocale;
+   
     const urls =
         project.imageUrls.length > 0
             ? project.imageUrls
@@ -87,10 +85,10 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
             <CardHeader className="px-3 py-3 h-auto shrink-0 flex flex-row items-center justify-between gap-4">
                 <div className="min-w-0 flex flex-col gap-2 justify-center items-start">
                     <CardTitle className=" text-sm leading-tight">
-                        {name}
+                        {project.translations[locale].name}
                     </CardTitle>
                     <CardDescription className="text-[#968c81] text-xs line-clamp-2">
-                        {description}
+                        {project.translations[locale].description}
                     </CardDescription>
                 </div>
                 <div className="h-full flex items-end jsustify-center">

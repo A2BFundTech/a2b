@@ -1,39 +1,46 @@
 import { auth } from "@/lib/firebase";
-import { Project, ProjectTranslations } from "../model/types";
+import { CreateProjectInput, Project } from "../model/types";
 
+export async function createProject(input: CreateProjectInput): Promise<Project> {
+  const user = auth.currentUser;
+  if (!user) throw new Error("Not authenticated");
 
-export type CreateProjectInput = {
-    translations: ProjectTranslations;
-    imageUrls: string[];
-};
+  const idToken = await user.getIdToken();
 
-export async function createProject(
-    input: CreateProjectInput,
-): Promise<Project> {
-    const user = auth.currentUser;
-    if (!user) {
-        throw new Error("Not authenticated");
-    }
+  const formData = new FormData();
+  formData.set(
+    "payload",
+    JSON.stringify({
+      translations: input.translations,
+      area: input.area,
+      price: input.price,
+      rentalYield: input.rentalYield,
+      resaleYield: input.resaleYield,
+    }),
+  );
 
-    const idToken = await user.getIdToken();
+  for (const file of input.files) {
+    formData.append("images", file);
+  }
 
-    const res = await fetch("/api/projects", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${idToken}`,
-        },
-        body: JSON.stringify(input),
-    });
+  const res = await fetch("/api/projects/add", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${idToken}`,
+    },
+    body: formData,
+  });
 
-    if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(
-            (err && typeof err.message === "string"
-                ? err.message
-                : "Failed to create project"),
-        );
-    }
+  const data = await res.json().catch(() => ({}));
 
-    return res.json();
+  if (!res.ok) {
+    // если сервер вернул issues (zod), можно отдать их наверх
+    const message =
+      typeof data?.message === "string" ? data.message : "Failed to create project";
+    const error = new Error(message) as Error & { issues?: unknown };
+    if (data?.issues) error.issues = data.issues;
+    throw error;
+  }
+
+  return data as Project;
 }

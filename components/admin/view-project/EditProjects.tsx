@@ -3,12 +3,12 @@ import { useProjects } from "@/features/card/hooks/useProjects";
 import type { Project } from "@/features/card/model/types";
 
 export const EditProjects = () => {
-    const { data: projects = [], isLoading } = useProjects();
+    const { data: projects = [], isPending } = useProjects();
 
     return (
         <section className=" w-full h-full  overflow-auto rounded-lg border bg-white p-4 shadow-sm">
             <h2 className="mb-3 text-lg font-semibold">Projects</h2>
-            {isLoading ? (
+            {isPending && projects.length === 0 ? (
                 <p className="text-sm text-muted-foreground">
                     Loading projects...
                 </p>
