@@ -7,6 +7,9 @@
         "menu_title": "Menu"
     },
     "Hero": {
+        "title_line1": "A2B -PRIVATE",
+        "title_line2": "EQUITY",
+        "title_line3": "FUND",
         "h2": "Real Estate Investments in Valencia",
         "h3": "Reliable investments in Spanish real estate with full support",
         "button": "Learn more"
@@ -238,5 +241,13 @@
         "email_line2": "support@valencia-invest.com",
         "social_title": "Follow us on social media",
         "social_subtitle": "Latest news and offers"
+    },
+    "ProjectModal": {
+        "area": "Area",
+        "price": "Price",
+        "rental_yield": "Rental yield",
+        "resale_yield": "Resale yield",
+        "description": "Description",
+        "close": "Close"
     }
 }

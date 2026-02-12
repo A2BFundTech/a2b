@@ -10,6 +10,9 @@
         "menu_title": "Menú"
     },
     "Hero": {
+        "title_line1": "A2B - PRIVADO",
+        "title_line2": "CAPITAL",
+        "title_line3": "FONDO",
         "h2": "Inversiones inmobiliarias en Valencia",
         "h3": "Inversiones fiables en el mercado inmobiliario español con acompañamiento completo",
         "button": "Más información"
@@ -241,5 +244,13 @@
         "email_line2": "support@valencia-invest.com",
         "social_title": "Síguenos en redes sociales",
         "social_subtitle": "Noticias y ofertas actualizadas"
+    },
+    "ProjectModal": {
+        "area": "Superficie",
+        "price": "Precio",
+        "rental_yield": "Rendimiento por alquiler",
+        "resale_yield": "Rendimiento por reventa",
+        "description": "Descripción",
+        "close": "Cerrar"
     }
 }
