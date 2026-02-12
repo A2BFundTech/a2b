@@ -8,7 +8,7 @@ export async function deleteProject(id: string): Promise<void> {
 
     const idToken = await user.getIdToken();
 
-    const res = await fetch(`/api/projects?id=${encodeURIComponent(id)}`, {
+    const res = await fetch(`/api/projects/delete?id=${encodeURIComponent(id)}`, {
         method: "DELETE",
         headers: {
             Authorization: `Bearer ${idToken}`,

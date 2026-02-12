@@ -26,7 +26,7 @@ import { login } from "@/features/auth/hooks/useLogin";
 import { fetchAuthUser } from "@/features/auth/api/fetchAuthUser";
 import { logout } from "@/features/auth/hooks/useLogout";
 
-const PANEL_PATH = "/panel";
+const PANEL_PATH = "/panel/projects-add";
 
 export default function LoginPage() {
     const [serverError, setServerError] = useState("");

@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import {
     Sidebar,
     SidebarContent,
@@ -14,19 +15,24 @@ import {
     SidebarSeparator,
     useSidebar,
 } from "@/components/ui/sidebar";
+import { logout } from "@/features/auth/hooks/useLogout";
 
 import {
     House,
     UserStar,
     FolderPlus,
     Handshake,
-    PencilLine,
+    Trash2,
+    LogOut,
+    Toolbox,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function AppSidebar() {
     const { open, setOpenMobile, openMobile } = useSidebar();
+    const pathname = usePathname();
 
     const mobileCloseMenu = () => {
         if (openMobile) {
@@ -59,17 +65,35 @@ export default function AppSidebar() {
                         <SidebarMenu>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <Link
-                                        href="/panel"
-                                        onClick={mobileCloseMenu}
-                                    >
+                                    <Link href="/" onClick={mobileCloseMenu}>
                                         <House />
-                                        <span>Home</span>
+                                        <span>Website</span>
                                     </Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                             <SidebarMenuItem>
-                                <SidebarMenuButton asChild>
+                                <SidebarMenuButton
+                                    asChild
+                                    isActive={pathname === "/panel"}
+                                    className="data-[active=true]:bg-[#917355]/15 data-[active=true]:text-[#917355] data-[active=true]:border-l-2 data-[active=true]:border-[#917355] data-[active=true]:font-semibold"
+                                >
+                                    <Link
+                                        href="/panel"
+                                        onClick={mobileCloseMenu}
+                                    >
+                                        <Toolbox />
+                                        <span>Guide</span>
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton
+                                    asChild
+                                    isActive={
+                                        pathname === "/panel/projects-add"
+                                    }
+                                    className="data-[active=true]:bg-[#917355]/15 data-[active=true]:text-[#917355] data-[active=true]:border-l-2 data-[active=true]:border-[#917355] data-[active=true]:font-semibold"
+                                >
                                     <Link
                                         href="/panel/projects-add"
                                         onClick={mobileCloseMenu}
@@ -80,24 +104,19 @@ export default function AppSidebar() {
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                             <SidebarMenuItem>
-                                <SidebarMenuButton asChild>
+                                <SidebarMenuButton
+                                    asChild
+                                    isActive={
+                                        pathname === "/panel/projects-edit"
+                                    }
+                                    className="data-[active=true]:bg-[#917355]/15 data-[active=true]:text-[#917355] data-[active=true]:border-l-2 data-[active=true]:border-[#917355] data-[active=true]:font-semibold"
+                                >
                                     <Link
                                         href="/panel/projects-edit"
                                         onClick={mobileCloseMenu}
                                     >
-                                        <PencilLine />
+                                        <Trash2 />
                                         <span>Edit projects</span>
-                                    </Link>
-                                </SidebarMenuButton>
-                            </SidebarMenuItem>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton asChild>
-                                    <Link
-                                        href="/panel/partners"
-                                        onClick={mobileCloseMenu}
-                                    >
-                                        <Handshake />
-                                        <span>Add partners</span>
                                     </Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
@@ -105,7 +124,18 @@ export default function AppSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
-            <SidebarFooter />
+            <SidebarFooter>
+                <Button
+                    onClick={logout}
+                    className="group/logout"
+                    variant="custom"
+                >
+                    <div className="flex items-center gap-2">
+                        <span>Logout</span>
+                        <LogOut className="transition-transform duration-350 group-hover/logout:translate-x-1" />
+                    </div>
+                </Button>
+            </SidebarFooter>
         </Sidebar>
     );
 }

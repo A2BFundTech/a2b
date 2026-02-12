@@ -1,40 +1,29 @@
-import z from "zod";
-import { formSchema } from "../validation/validation";
+import type { ProjectLocale } from "../validation/validation";
+import type {
+    FormData,
+    CreateProjectBody,
+    UpdateProjectBody,
+} from "../validation/validation";
 
-export type FormData = z.infer<typeof formSchema>;
-
-
-export const PROJECT_LOCALES = ["en", "ru", "ua", "es"] as const;
-export type ProjectLocale = (typeof PROJECT_LOCALES)[number];
-
-export type ProjectTranslation = {
-    name: string;
-    description: string;
-};
-
-export type ProjectTranslations = Record<ProjectLocale, ProjectTranslation>;
+export type ProjectTranslation = FormData["translations"][ProjectLocale];
+export type ProjectTranslations = FormData["translations"];
 
 export type Project = {
-    id: string;
-    translations: ProjectTranslations;
-    imageUrls: string[];
+  id: string;
+  translations: ProjectTranslations;
+  area: number;
+  price: number;
+  rentalYield: number;
+  resaleYield: number;
+  imageUrls: string[];
 };
 
-const FALLBACK_LOCALE: ProjectLocale = "en";
+export type PendingImage = { file: File; previewUrl: string };
 
-export function getProjectName(project: Project, locale: string): string {
-    const loc = (PROJECT_LOCALES.includes(locale as ProjectLocale)
-        ? locale
-        : FALLBACK_LOCALE) as ProjectLocale;
-    return project.translations[loc]?.name ?? project.translations.en.name ?? "";
-}
+export type CreateProjectInput = Omit<CreateProjectBody, "imageUrls"> & {
+  files: File[];
+};
 
-export function getProjectDescription(
-    project: Project,
-    locale: string,
-): string {
-    const loc = (PROJECT_LOCALES.includes(locale as ProjectLocale)
-        ? locale
-        : FALLBACK_LOCALE) as ProjectLocale;
-    return project.translations[loc]?.description ?? project.translations.en.description ?? "";
-}
+export type UpdateProjectInput = { id: string } & UpdateProjectBody & {
+  files?: File[];
+};

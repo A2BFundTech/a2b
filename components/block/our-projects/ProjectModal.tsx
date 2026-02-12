@@ -13,12 +13,9 @@ import {
 import { Button } from "@/components/ui/button";
 
 import { placeholderImages } from "@/lib/utils";
-import {
-    Project,
-    getProjectDescription,
-    getProjectName,
-} from "@/features/card/model/types";
+import { Project } from "@/features/card/model/types";
 import { useEffect, useState } from "react";
+import { ProjectLocale } from "@/features/card/validation/validation";
 
 type ProjectModalProps = {
     project: Project;
@@ -26,9 +23,8 @@ type ProjectModalProps = {
 };
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
-    const locale = useLocale();
-    const name = getProjectName(project, locale);
-    const description = getProjectDescription(project, locale);
+    const locale = useLocale() as ProjectLocale;
+
     const [activeImage, setActiveImage] = useState<string | null>(null);
     const urls =
         project.imageUrls.length > 0
@@ -36,11 +32,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             : placeholderImages(project.id);
 
     useEffect(() => {
-        // блокируем скролл
         document.body.style.overflow = "hidden";
 
         return () => {
-            // возвращаем обратно
             document.body.style.overflow = "";
         };
     }, []);
@@ -50,16 +44,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             className="fixed inset-0 z-50 overflow-y-auto bg-background p-4 md:flex md:items-center md:justify-center md:bg-black/50 md:p-6"
             role="dialog"
             aria-modal="true"
-            aria-label={name}
+            aria-label={project.translations[locale].name}
             onClick={onClose}
         >
             <div
-                className="w-full max-w-lg mx-auto md:max-w-3xl md:max-h-[90vh] md:overflow-y-auto md:rounded-xl md:shadow-xl md:bg-background md:border md:border-[#91735520]"
+                className="w-full max-w-lg mx-auto md:max-w-4xl md:max-h-[95vh] md:overflow-y-auto md:rounded-xl md:shadow-xl md:bg-background md:border md:border-[#91735520]"
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="sticky top-0 z-10 flex justify-between p-3 bg-background/95 backdrop-blur border-b border-[#91735520] rounded-t-xl md:rounded-t-xl">
                     <h2 className=" text-2xl font-semibold text-foreground">
-                        {name}
+                        {project.translations[locale].name}
                     </h2>
                     <Button
                         variant="ghost"
@@ -82,7 +76,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 {urls.map((url, idx) => (
                                     <CarouselItem
                                         key={`${project.id}-${idx}`}
-                                        className="pl-0 basis-full w-full h-[380px] md:h-[500px]"
+                                        className="pl-0 basis-full w-full h-[380px] md:h-[450px]"
                                     >
                                         <div className="relative w-full h-full">
                                             <Image
@@ -127,9 +121,17 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                             </div>
                         </div>
                     )}
-                    <p className="text-[#968c81] text-sm leading-relaxed">
-                        {description}
-                    </p>
+                    <div>
+                        <p>{project.area} m²</p>
+                        <p>{project.price} €</p>
+                        <p>{project.rentalYield}%</p>
+                        <p>{project.resaleYield}%</p>
+                        <p>{project.translations[locale].location}</p>
+                        <p>{project.translations[locale].status}</p>
+                        <p className="text-[#968c81] text-sm leading-relaxed">
+                            {project.translations[locale].description}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

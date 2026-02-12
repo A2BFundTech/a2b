@@ -13,7 +13,6 @@ import { WhyChooseUs } from "@/components/block/why-choose-us/WhyChooseUs";
 import { OurProjects } from "@/components/block/our-projects/OurProjects";
 
 export default function Home() {
-    // TODO: загружать проекты из БД и передавать в OurProjects
 
     return (
         <div className="flex flex-col bg-white p-0 m-0">

@@ -63,7 +63,6 @@ export function WhyChooseUs() {
                     height={25}
                     className="text-white my-3 "
                 />
-                {/* //text-[#FAFAFA] */}
             </div>
 
             <div className="container mx-auto px-4 z-2 relative">

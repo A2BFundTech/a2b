@@ -1,12 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createProject } from "../api/createProject";
-import type { CreateProjectInput } from "../model/types";
+import { updateProject } from "../api/updateProject";
+import type { UpdateProjectInput } from "../model/types";
 
-export function useCreateProject() {
+export function useUpdateProject() {
     const queryClient = useQueryClient();
 
     return useMutation({
-        mutationFn: (input: CreateProjectInput) => createProject(input),
+        mutationFn: (input: UpdateProjectInput) => updateProject(input),
         onSuccess: async () => {
             await queryClient.invalidateQueries({
                 queryKey: ["projects"],
@@ -15,4 +15,3 @@ export function useCreateProject() {
         },
     });
 }
-

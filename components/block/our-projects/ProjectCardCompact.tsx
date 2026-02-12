@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Project, getProjectName } from "@/features/card/model/types";
+import { Project } from "@/features/card/model/types";
+import { ProjectLocale } from "@/features/card/validation/validation";
 
 type ProjectCardCompactProps = {
     project: Project;
@@ -15,8 +16,8 @@ export function ProjectCardCompact({
     project,
     onClick,
 }: ProjectCardCompactProps) {
-    const locale = useLocale();
-    const name = getProjectName(project, locale);
+    const locale = useLocale() as ProjectLocale;
+
     const urls = project.imageUrls.length > 0 ? project.imageUrls : [];
     const firstUrl = urls[0];
 
@@ -45,7 +46,7 @@ export function ProjectCardCompact({
             </div>
             <div className="px-3 py-2.5 shrink-0 bg-background flex flex-row items-center justify-between gap-2">
                 <span className=" text-sm font-semibold text-foreground min-w-0 truncate flex-1">
-                    {name}
+                    {project.translations[locale].name}
                 </span>
                 <Button
                     type="button"
