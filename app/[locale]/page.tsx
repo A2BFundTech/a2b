@@ -1,6 +1,6 @@
 import { InvestmentLifecycle } from "@/components/block/investment-lifecycle/InvestmentLifecycle";
 import { Company } from "@/components/block/company/Company";
-import { ContactForn } from "@/components/block/contact-form/ContactForn";
+import { ContactForm } from "@/components/block/contact-form/ContactForm";
 import { Footer } from "@/components/block/footer/Footer";
 import { RiskManagement } from "@/components/block/risk-management/RiskManagement";
 import Header from "@/components/block/header/Header";
@@ -27,7 +27,7 @@ export default function Home() {
             <InvestmentLifecycle />
             <RiskManagement />
             <OurTeam />
-            <ContactForn />
+            <ContactForm />
             <Footer />
         </div>
     );

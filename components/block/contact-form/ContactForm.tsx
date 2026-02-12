@@ -28,7 +28,7 @@ export async function submitContactStub(
     return { ok: true };
 }
 
-export function ContactForn() {
+export function ContactForm() {
     const t = useTranslations("ContactForm");
 
     const schema = z.object({
