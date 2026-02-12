@@ -1,5 +1,7 @@
 export default function PartnersPage() {
     return (
-        <div><p>PArtners</p></div>
-    )
+        <div className="text-center w-full h-full flex justify-center items-center">
+            <p className="text-2xl font-bold">Coming soon</p>
+        </div>
+    );
 }

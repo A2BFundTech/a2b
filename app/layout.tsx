@@ -5,7 +5,6 @@ import { getLocale, getMessages } from "next-intl/server";
 import { Providers } from "./providers";
 import { Fraunces } from "next/font/google";
 import { Toaster } from "sonner";
-import { didot } from "@/lib/font";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -17,11 +16,6 @@ const fraunces = Fraunces({
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
     subsets: ["latin"],
 });
 
@@ -41,7 +35,7 @@ export default async function RootLayout({
     return (
         <html lang={locale}>
             <body
-                className={`${geistSans.variable} ${fraunces.variable} ${didot.variable} antialiased`}
+                className={`${geistSans.variable} ${fraunces.variable} antialiased`}
             >
                 <Providers>
                     <NextIntlClientProvider locale={locale} messages={messages}>

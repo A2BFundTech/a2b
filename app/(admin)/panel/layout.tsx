@@ -42,12 +42,11 @@ export default function AdminPanelLayout({
      }, [router]);
 
      if (status === "loading") {
-       // ничего не показываем: ни сайдбар, ни topbar
        return null;
      }
     
     return (
-        <div className="min-h-screen bg-slate-50 flex flex-col">
+        <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
             <SidebarProvider>
                 <AppSidebar />
                 <main className="flex max-h-screen flex-1 flex-col ">

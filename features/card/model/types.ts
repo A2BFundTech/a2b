@@ -1,5 +1,9 @@
 import type { ProjectLocale } from "../validation/validation";
-import type { FormData, CreateProjectBody } from "../validation/validation";
+import type {
+    FormData,
+    CreateProjectBody,
+    UpdateProjectBody,
+} from "../validation/validation";
 
 export type ProjectTranslation = FormData["translations"][ProjectLocale];
 export type ProjectTranslations = FormData["translations"];
@@ -18,4 +22,8 @@ export type PendingImage = { file: File; previewUrl: string };
 
 export type CreateProjectInput = Omit<CreateProjectBody, "imageUrls"> & {
   files: File[];
+};
+
+export type UpdateProjectInput = { id: string } & UpdateProjectBody & {
+  files?: File[];
 };
