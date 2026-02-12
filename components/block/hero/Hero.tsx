@@ -30,10 +30,10 @@ export const Hero = () => {
                 className={`absolute top-12 left-0 w-full h-full flex flex-col justify-center items-center gap-5  transition-all duration-700`}
             >
                 <div className="flex flex-col justify-center items-center p-2 w-full mt-10">
-                    <h1 className={`text-center font-semibold text-white tracking-wider ${["ru", "ua"].includes(locale) ? "text-[3rem]" : "text-[3.5rem]"}`}>
+                    <h1 className={`text-center font-semibold text-white tracking-wider  ${["ru", "ua"].includes(locale) ? "text-[1.8rem] md:text-[3rem]" : "text-[2.5rem] md:text-[3.5rem]"}`}>
                         {t("title_line1")}
                     </h1>
-                    <h1 className={`text-center font-semibold text-white tracking-wider ${["ru", "ua"].includes(locale) ? "text-[3rem]" : "text-[3.5rem]"}`}>
+                    <h1 className={`text-center font-semibold text-white tracking-wider   ${["ru", "ua"].includes(locale) ? "text-[1.8rem]  md:text-[3rem]" : "text-[2.5rem] md:text-[3.5rem]"}`}>
                         {t("title_line2")} {t("title_line3")}
                     </h1>
                 </div>
