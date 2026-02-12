@@ -152,7 +152,7 @@ export const AddProject = () => {
     }, []);
 
     return (
-        <section className="w-full space-y-4 rounded-lg border bg-white p-4 shadow-sm">
+        <section className="w-full space-y-4 md:rounded-lg border bg-white p-4 shadow-sm">
             <h2 className="text-lg font-semibold">Create project</h2>
 
             <Form {...form}>
@@ -241,7 +241,7 @@ export const AddProject = () => {
                     ))}
 
                     {/* Numbers */}
-                    <div className="space-y-4 col-span-1 md:col-span-2 max-w-[500px]">
+                    <div className="space-y-4 col-span-1  max-w-[500px]">
                         <h3 className="text-sm font-medium">Numbers</h3>
 
                         <FormField
@@ -318,7 +318,7 @@ export const AddProject = () => {
                     </div>
 
                     {/* Images */}
-                    <div className="space-y-2 col-span-1 md:col-span-2 max-w-[500px]">
+                    <div className="space-y-2 col-span-1  max-w-[500px]">
                         <FormField
                             control={form.control}
                             name="imageUrls"
@@ -393,7 +393,7 @@ export const AddProject = () => {
                     </div>
 
                     {/* Submit */}
-                    <div className="col-span-1 max-w-[500px]">
+                    <div className="col-span-1 md:col-span-2">
                         <Button
                             type="submit"
                             className="w-full"

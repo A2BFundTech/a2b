@@ -17,9 +17,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-import {
-    Project
-} from "@/features/card/model/types";
+import { Project } from "@/features/card/model/types";
 import { placeholderImages } from "@/lib/utils";
 import { ProjectLocale } from "@/features/card/validation/validation";
 
@@ -31,7 +29,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
     const locale = useLocale() as ProjectLocale;
-   
+
     const urls =
         project.imageUrls.length > 0
             ? project.imageUrls

@@ -2,7 +2,6 @@
 
 import {
     Card,
-    CardDescription,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
@@ -21,22 +20,27 @@ import { useDeleteProject } from "@/features/card/hooks/useDeleteProject";
 import { Project } from "@/features/card/model/types";
 import { useLocale } from "next-intl";
 import { ProjectLocale } from "@/features/card/validation/validation";
+import { useState } from "react";
+import { EditProjectModal } from "./EditProjectModal";
 
 type AdminProjectCardProps = {
     project: Project;
 };
 
 export function AdminProjectCard({ project }: AdminProjectCardProps) {
-
     const locale = useLocale() as ProjectLocale;
+    const [isOpen, setIsOpen] = useState(false);
 
-    
+    const handleOpen = () => {
+        setIsOpen(true);
+    };
+
     const urls = project.imageUrls.length > 0 ? project.imageUrls : [];
 
     const { mutate: deleteProject, isPending } = useDeleteProject();
 
     return (
-        <Card className="gap-0 p-0 border-[#91735520] w-full h-full rounded-none max-w-[300px]">
+        <Card className="gap-0 p-0 border-[#91735520] w-full h-full rounded-none max-w-[300px] hover:tr">
             {urls.length > 0 ? (
                 <Carousel
                     opts={{ align: "start", loop: true }}
@@ -74,8 +78,12 @@ export function AdminProjectCard({ project }: AdminProjectCardProps) {
                     <CardTitle className="text-sm leading-tight">
                         {project.translations[locale].name}
                     </CardTitle>
-                    <CardDescription className="text-[#968c81] text-xs line-clamp-2 mt-0.5 flex gap-2">
-                        <Button variant={"outline"} size={"icon"} >
+                    <div className="text-[#968c81] text-xs line-clamp-2 mt-0.5 flex gap-2">
+                        <Button
+                            variant={"outline"}
+                            size={"icon"}
+                            onClick={handleOpen}
+                        >
                             <PencilLine />
                         </Button>
                         <Button
@@ -90,9 +98,15 @@ export function AdminProjectCard({ project }: AdminProjectCardProps) {
                                 <Trash2 />
                             )}
                         </Button>
-                    </CardDescription>
+                    </div>
                 </div>
             </CardHeader>
+            {isOpen ? (
+                <EditProjectModal
+                    onClose={() => setIsOpen(false)}
+                    project={project}
+                />
+            ) : null}
         </Card>
     );
 }
