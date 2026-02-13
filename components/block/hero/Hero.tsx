@@ -1,59 +1,68 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "../../ui/button";
 import { useLocale, useTranslations } from "next-intl";
 import { scrollToSection } from "@/lib/utils";
+import Image from "next/image";
 
 export const Hero = () => {
     const t = useTranslations("Hero");
-
     const locale = useLocale();
 
+    const titleSize = ["ru", "ua"].includes(locale)
+        ? "text-[1.9rem] md:text-[3rem] lg:text-[3.5rem]"
+        : "text-[2.25rem] md:text-[3.25rem] lg:text-[4rem]";
 
     return (
         <section
             id="hero"
-            className="relative w-full overflow-hidden min-h-screen"
+            className="relative w-full overflow-hidden min-h-screen bg-black"
         >
             <Image
-                src="/assets/heroImg.webp"
+                src="/assets/images/herow8.webp"
                 alt="Hero background"
                 fill
                 priority
                 className="object-cover"
                 sizes="100vw"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/40 to-transparent" />
-
-            <div
-                className={`absolute top-12 left-0 w-full h-full flex flex-col justify-center items-center gap-5  transition-all duration-700`}
-            >
-                <div className="flex flex-col justify-center items-center p-2 w-full mt-10">
-                    <h1 className={`text-center font-semibold text-white tracking-wider  ${["ru", "ua"].includes(locale) ? "text-[1.8rem] md:text-[3rem]" : "text-[2.5rem] md:text-[3.5rem]"}`}>
+            {/* <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/50 to-transparent"/> */}
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/60 to-black/30" />
+            <div className="min-h-screen flex flex-col items-center px-4 pt-80  md:pt-64 relative  ">
+                <div className="flex flex-col items-center text-center max-w-3xl mb-4 backdrop-blur-md p-4 md:rounded-xl bg-white/10">
+                    <h1
+                        className={`font-bold text-white tracking-wide ${titleSize} leading-tight`}
+                    >
                         {t("title_line1")}
                     </h1>
-                    <h1 className={`text-center font-semibold text-white tracking-wider   ${["ru", "ua"].includes(locale) ? "text-[1.8rem]  md:text-[3rem]" : "text-[2.5rem] md:text-[3.5rem]"}`}>
+                    <h1
+                        className={`font-bold text-white tracking-wide ${titleSize} leading-tight`}
+                    >
                         {t("title_line2")} {t("title_line3")}
                     </h1>
                 </div>
-                <div className="flex flex-col justify-center items-center gap-2 w-full bg-white/30 backdrop-blur-sm py-3">
-                    <h2 className="text-lg font-semibold text-white text-center tracking-widest">
-                        {t("h2")}
-                    </h2>
-                    <h3 className="text-md text-white text-center tracking-wide">
+
+                <p
+                    className="text-white text-center md:text-base max-w-xl mb-8 md:mb-10 leading-relaxed"
+                    style={{
+                        textShadow:
+                            "2px 2px 4px rgba(0,0,0,0.9), -1px -1px 0 rgba(0,0,0,0.9), 1px -1px 0 rgba(0,0,0,0.9), -1px 1px 0 rgba(0,0,0,0.9), 1px 1px 0 rgba(0,0,0,0.9)",
+                    }}
+                >
+                    <span className="text-xl md:text-2xl">{t("h2")}.</span>
+                    <br />
+                    <span className="text-white italic text-md md:text-lg">
                         {t("h3")}
-                    </h3>
-                </div>
-                <div>
-                    <Button
-                        variant="custom"
-                        className="shadow-2xl shadow-black-50/50 cursor-pointer py-6 px-7 text-md"
-                        onClick={() => scrollToSection("contact")}
-                    >
-                        {t("button")}
-                    </Button>
-                </div>
+                    </span>
+                </p>
+
+                <Button
+                    variant="custom"
+                    className="mt-8 md:mt-10 shadow-xl py-5 px-8 text-base font-medium hover:scale-105 transition-transfor"
+                    onClick={() => scrollToSection("contact")}
+                >
+                    {t("button")}
+                </Button>
             </div>
         </section>
     );
