@@ -4,10 +4,10 @@ export const PROJECT_LOCALES = ["en", "ru", "ua", "es"] as const;
 export type ProjectLocale = (typeof PROJECT_LOCALES)[number];
 
 export const translationSchema = z.object({
-    name: z.string().trim().min(1, "name is required"),
-    description: z.string().trim().min(1, "description is required"),
-    location: z.string().trim().min(1, "location is required"),
-    status: z.string().trim().min(1, "status is required"),
+    name: z.string().trim().min(1, "Название является обязательным полем"),
+    description: z.string().trim().min(1, "Описание является обязательным полем"),
+    location: z.string().trim().min(1, "Локация является обязательной полем"),
+    status: z.string().trim().min(1, "Статус является обязательным полем"),
 });
 
 export const translationsSchema = z
@@ -31,9 +31,9 @@ export const projectBaseSchema = z
 
 export const formSchema = projectBaseSchema.extend({
     imageUrls: z
-        .array(z.string().trim().url("Invalid image url"))
-        .min(1, "Upload at least 1 image")
-        .max(5, "Maximum 5 images per project"),
+        .array(z.string().trim().url("Неверный URL изображения"))
+        .min(1, "Добавьте хотя бы одно изображение")
+        .max(5, "Максимум 5 изображений"),
 });
 export type FormData = z.input<typeof formSchema>;
 
@@ -66,7 +66,7 @@ export const updateProjectBodySchema = z
         resaleYield: z.coerce.number().positive().optional(),
         imageUrls: z
             .array(z.string().trim().url())
-            .max(5, "Maximum 5 images per project")
+            .max(5, "Максимум 5 изображений")
             .optional(),
     })
     .strict();
@@ -112,10 +112,10 @@ const editTranslationsSchema = z
 export const editFormSchema = z
     .object({
         translations: editTranslationsSchema,
-        area: z.coerce.number().positive("Введите площадь"),
-        price: z.coerce.number().positive("Введите цену"),
-        rentalYield: z.coerce.number().positive("Введите rental yield"),
-        resaleYield: z.coerce.number().positive("Введите resale yield"),
+        area: z.coerce.number("Площадь является обязательным полем").positive("Число не может быть отрицательным"),
+        price: z.coerce.number("Цена является обязательным полем").positive("Число не может быть отрицательным"),
+        rentalYield: z.coerce.number("Доходность аренды является обязательным полем").positive("Число не может быть отрицательным"),
+        resaleYield: z.coerce.number("Доходность перепродажи является обязательным полем").positive("Число не может быть отрицательным"),
         imageUrls: z
             .array(z.string().min(1))
             .min(1, "Добавьте хотя бы одно изображение")

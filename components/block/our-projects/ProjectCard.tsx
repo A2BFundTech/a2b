@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ChevronRight } from "lucide-react";
 import {
     Card,
@@ -29,6 +29,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
     const locale = useLocale() as ProjectLocale;
+    const t = useTranslations("ProjectModal");
 
     const urls =
         project.imageUrls.length > 0
@@ -43,7 +44,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
                 onClick ? (e) => e.key === "Enter" && onClick() : undefined
             }
             className={
-                "overflow-hidden gap-0 p-0 border-[#91735520] w-full h-[370px] flex flex-col shrink-0 " +
+                "overflow-hidden gap-0 p-0 border-[#91735520] w-full h-[350px] flex flex-col justify-between shrink-0 " +
                 (onClick
                     ? "cursor-pointer hover:shadow-md hover:-translate-y-0.5 duration-300 transition-all "
                     : "")
@@ -81,13 +82,11 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
                 </Carousel>
             </div>
             <CardHeader className="px-3 py-3 h-auto shrink-0 flex flex-row items-center justify-between gap-4">
-                <div className="min-w-0 flex flex-col gap-2 justify-center items-start">
+                <div className="min-w-0 flex flex-col gap-2 justify-center items-start flex-1">
                     <CardTitle className=" text-sm leading-tight">
                         {project.translations[locale].name}
                     </CardTitle>
-                    <CardDescription className="text-[#968c81] text-xs line-clamp-2">
-                        {project.translations[locale].description}
-                    </CardDescription>
+                    
                 </div>
                 <div className="h-full flex items-end jsustify-center">
                     {onClick && (

@@ -72,7 +72,7 @@ export default function AppSidebar() {
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                             <SidebarMenuItem>
-                                <SidebarMenuButton
+                                {/* <SidebarMenuButton
                                     asChild
                                     isActive={pathname === "/panel"}
                                     className="data-[active=true]:bg-[#917355]/15 data-[active=true]:text-[#917355] data-[active=true]:border-l-2 data-[active=true]:border-[#917355] data-[active=true]:font-semibold"
@@ -84,7 +84,7 @@ export default function AppSidebar() {
                                         <Toolbox />
                                         <span>Guide</span>
                                     </Link>
-                                </SidebarMenuButton>
+                                </SidebarMenuButton> */}
                             </SidebarMenuItem>
                             <SidebarMenuItem>
                                 <SidebarMenuButton

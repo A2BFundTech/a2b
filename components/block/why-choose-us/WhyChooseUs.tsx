@@ -81,7 +81,7 @@ export function WhyChooseUs() {
                             value={key}
                             className="px-4 md:px-6 bg-white"
                         >
-                            <AccordionTrigger className="text-left  text-base md:text-lg font-semibold text-foreground hover:no-underline py-5 gap-3 [&>svg]:shrink-0">
+                            <AccordionTrigger className="flex items-center  text-left wrap-break-word text-base md:text-lg font-semibold text-foreground hover:no-underline py-5 gap-3 [&>svg]:shrink-0">
                                 <span className="flex items-center gap-3">
                                     <span className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                                         <Icon

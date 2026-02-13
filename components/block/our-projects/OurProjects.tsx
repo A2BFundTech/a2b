@@ -9,7 +9,7 @@ import { ProjectModal } from "./ProjectModal";
 import { Project } from "@/features/card/model/types";
 import { useProjects } from "@/features/card/hooks/useProjects";
 import { AnimatePresence, motion } from "motion/react";
-import { Loader, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 const INITIAL_COUNT = 3;
 
