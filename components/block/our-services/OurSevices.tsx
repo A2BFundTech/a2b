@@ -43,7 +43,7 @@ export const OurSevices = () => {
                             key={key}
                             className={`rounded-xl p-6 shadow-sm border border-[#91735556] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 ${key === "sale" ? "md:col-span-2" : ""}`}
                         >
-                            <div className="flex items-center gap-3 mb-4">
+                            <div className="flex items-center justify-start gap-3 mb-4">
                                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                                     <Icon
                                         className="w-5 h-5 text-primary"
