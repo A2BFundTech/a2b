@@ -114,8 +114,8 @@ export const editFormSchema = z
         translations: editTranslationsSchema,
         area: z.coerce.number("Площадь является обязательным полем").positive("Число не может быть отрицательным"),
         price: z.coerce.number("Цена является обязательным полем").positive("Число не может быть отрицательным"),
-        rentalYield: z.coerce.number("Доходность аренды является обязательным полем").positive("Число не может быть отрицательным"),
-        resaleYield: z.coerce.number("Доходность перепродажи является обязательным полем").positive("Число не может быть отрицательным"),
+        rentalYield: z.coerce.number("Доходность аренды является обязательным полем").positive("Введите доходность аренды"),
+        resaleYield: z.coerce.number("Доходность перепродажи является обязательным полем").positive("Введите доходность перепродажи"),
         imageUrls: z
             .array(z.string().min(1))
             .min(1, "Добавьте хотя бы одно изображение")
