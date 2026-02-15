@@ -4,7 +4,6 @@ import { getLocale, getMessages } from "next-intl/server";
 import { Providers } from "./providers";
 import { Fraunces } from "next/font/google";
 import { Toaster } from "sonner";
-import { generateMetadata } from "@/components/meta-data/meta-data";
 import "./globals.css";
 
 export const viewport = {
@@ -25,7 +24,6 @@ const geistSans = Geist({
     subsets: ["latin"],
 });
 
-export { generateMetadata };
 
 export default async function RootLayout({
     children,
