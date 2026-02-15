@@ -38,8 +38,6 @@ export function getMetadataForLocale(locale: string): Metadata {
                 { url: "/apple-icon.png", sizes: "180x180" },
             ],
         },
-        
-        manifest: "/site.webmanifest",
 
         robots: {
             index: true,
