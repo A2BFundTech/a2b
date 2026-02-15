@@ -21,10 +21,9 @@ import {
     House,
     UserStar,
     FolderPlus,
-    Handshake,
     Trash2,
     LogOut,
-    Toolbox,
+    PencilLine,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
@@ -115,7 +114,7 @@ export default function AppSidebar() {
                                         href="/panel/projects-edit"
                                         onClick={mobileCloseMenu}
                                     >
-                                        <Trash2 />
+                                        <PencilLine />
                                         <span>Edit projects</span>
                                     </Link>
                                 </SidebarMenuButton>

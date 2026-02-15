@@ -27,7 +27,7 @@ import { PendingImage } from "@/features/card/model/types";
 const LOCALE_LABELS: Record<(typeof PROJECT_LOCALES)[number], string> = {
     en: "English",
     ru: "Русский",
-    ua: "Українська",
+    uk: "Українська",
     es: "Español",
 };
 
@@ -40,10 +40,10 @@ const defaultTranslations = Object.fromEntries(
 
 const DEFAULT_VALUES: FormData = {
     translations: defaultTranslations,
-    area: 0,
-    price: 0,
-    rentalYield: 0,
-    resaleYield: 0,
+    area: "",
+    price: "",
+    rentalYield: "",
+    resaleYield: "",
     imageUrls: [],
 };
 
@@ -82,10 +82,10 @@ export const AddProject = () => {
     const onSubmit = form.handleSubmit((values) => {
         const payload = {
             translations: values.translations,
-            area: Number(values.area),
-            price: Number(values.price),
-            rentalYield: Number(values.rentalYield),
-            resaleYield: Number(values.resaleYield),
+            area: values.area,
+            price: values.price,
+            rentalYield: values.rentalYield,
+            resaleYield: values.resaleYield,
         };
         const files = pendingImages.map((img) => img.file);
 
@@ -132,16 +132,6 @@ export const AddProject = () => {
         setPendingImages((prev) => [...prev, ...next]);
         e.target.value = "";
     };
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const numberFieldProps = (field: any) => ({
-        ...field,
-        value: field.value || "",
-        onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-            const v = e.target.value;
-            field.onChange(v === "" ? 0 : Number(v));
-        },
-    });
 
     useEffect(() => {
         return () => {
@@ -254,7 +244,9 @@ export const AddProject = () => {
                                         <Input
                                             type="text"
                                             placeholder="0"
-                                            {...numberFieldProps(field)}
+                                            {...field}
+                                            value={String(field.value ?? "")}
+                                            onChange={(e) => field.onChange(e.target.value)}
                                         />
                                     </FormControl>
                                     <FormMessage />
@@ -272,7 +264,9 @@ export const AddProject = () => {
                                         <Input
                                             type="text"
                                             placeholder="0"
-                                            {...numberFieldProps(field)}
+                                            {...field}
+                                            value={String(field.value ?? "")}
+                                            onChange={(e) => field.onChange(e.target.value)}
                                         />
                                     </FormControl>
                                     <FormMessage />
@@ -290,7 +284,9 @@ export const AddProject = () => {
                                         <Input
                                             type="text"
                                             placeholder="0"
-                                            {...numberFieldProps(field)}
+                                            {...field}
+                                            value={String(field.value ?? "")}
+                                            onChange={(e) => field.onChange(e.target.value)}
                                         />
                                     </FormControl>
                                     <FormMessage />
@@ -308,7 +304,9 @@ export const AddProject = () => {
                                         <Input
                                             type="text"
                                             placeholder="0"
-                                            {...numberFieldProps(field)}
+                                            {...field}
+                                            value={String(field.value ?? "")}
+                                            onChange={(e) => field.onChange(e.target.value)}
                                         />
                                     </FormControl>
                                     <FormMessage />

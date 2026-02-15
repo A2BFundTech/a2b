@@ -11,10 +11,10 @@ export type ProjectTranslations = FormData["translations"];
 export type Project = {
   id: string;
   translations: ProjectTranslations;
-  area: number;
-  price: number;
-  rentalYield: number;
-  resaleYield: number;
+  area: string;
+  price: string;
+  rentalYield: string;
+  resaleYield: string;
   imageUrls: string[];
 };
 

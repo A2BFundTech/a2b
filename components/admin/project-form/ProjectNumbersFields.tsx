@@ -11,22 +11,6 @@ import {
 import { Input } from "@/components/ui/input";
 import type { EditFormData } from "@/features/card/validation/validation";
 
-function numberFieldProps(
-    field: {
-        value?: number | string | unknown;
-        onChange: (value: number | undefined) => void;
-    },
-) {
-    return {
-        ...field,
-        value: typeof field.value === "number" ? field.value : "",
-        onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-            const v = e.target.value;
-            field.onChange(v === "" ? undefined : Number(v));
-        },
-    };
-}
-
 const FIELDS: { name: Path<EditFormData>; label: string }[] = [
     { name: "area", label: "Area" },
     { name: "price", label: "Price" },
@@ -59,7 +43,9 @@ export function ProjectNumbersFields({
                                 <Input
                                     type="text"
                                     placeholder="0"
-                                    {...numberFieldProps(field)}
+                                    {...field}
+                                    value={String(field.value ?? "")}
+                                    onChange={(e) => field.onChange(e.target.value)}
                                     disabled={isPending}
                                 />
                             </FormControl>
