@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const localeMap: Record<string, string> = {
         ru: "ru_RU",
         en: "en_US",
-        ua: "uk_UA",
+        uk: "uk_UA",
         es: "es_ES",
     };
 
@@ -92,16 +92,12 @@ export async function generateMetadata(): Promise<Metadata> {
             languages: {
                 en: `${baseUrl}/en`,
                 ru: `${baseUrl}/ru`,
-                uk: `${baseUrl}/ua`,
+                uk: `${baseUrl}/uk`,
                 es: `${baseUrl}/es`,
                 "x-default": `${baseUrl}/en`,
             },
         },
 
-        // Verification — раскомментируй и подставь коды из Google Search Console / Яндекс.Вебмастер
-        // verification: { google: "...", yandex: "..." },
-
-        // Другие полезные теги
         category: "finance",
         classification: "Business",
     };

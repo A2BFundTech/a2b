@@ -9,7 +9,7 @@ export const Hero = () => {
     const t = useTranslations("Hero");
     const locale = useLocale();
 
-    const titleSize = ["ru", "ua"].includes(locale)
+    const titleSize = ["ru", "uk"].includes(locale)
         ? "text-[1.9rem] md:text-[3rem] lg:text-[3.5rem]"
         : "text-[2.25rem] md:text-[3.25rem] lg:text-[4rem]";
 

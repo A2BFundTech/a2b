@@ -18,7 +18,7 @@ import {
 const LOCALE_LABELS: Record<ProjectLocale, string> = {
     en: "English",
     ru: "Русский",
-    ua: "Українська",
+    uk: "Українська",
     es: "Español",
 };
 
