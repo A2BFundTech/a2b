@@ -1,11 +1,17 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { Providers } from "./providers";
 import { Fraunces } from "next/font/google";
 import { Toaster } from "sonner";
+import { generateMetadata } from "@/components/meta-data/meta-data";
 import "./globals.css";
+
+export const viewport = {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+};
 
 const fraunces = Fraunces({
     subsets: ["latin", "latin-ext"],
@@ -19,16 +25,7 @@ const geistSans = Geist({
     subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-    title: "A2B Fund — Real Estate Investments",
-    description: "Invest in high-yield real estate projects in Spain",
-    openGraph: {
-        title: "A2B Fund",
-        description: "Real Estate Investments in Spain",
-        images: ["/og.jpg"],
-        type: "website",
-    },
-};
+export { generateMetadata };
 
 export default async function RootLayout({
     children,
@@ -40,6 +37,20 @@ export default async function RootLayout({
 
     return (
         <html lang={locale}>
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossOrigin="anonymous"
+                />
+                <meta name="msapplication-TileColor" content="#000000" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta
+                    name="apple-mobile-web-app-status-bar-style"
+                    content="black-translucent"
+                />
+            </head>
             <body
                 className={`${geistSans.variable} ${fraunces.variable} antialiased`}
             >
