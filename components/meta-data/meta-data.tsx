@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { getLocale } from "next-intl/server";
 import { metaByLocale } from "./meta-messages";
 
-export async function generateMetadata(): Promise<Metadata> {
-    const locale = await getLocale();
+export function getMetadataForLocale(locale: string): Metadata {
     const meta = metaByLocale[locale] ?? metaByLocale.en;
 
     const title = meta.title;
