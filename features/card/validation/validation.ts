@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const PROJECT_LOCALES = ["en", "ru", "ua", "es"] as const;
+export const PROJECT_LOCALES = ["en", "ru", "uk", "es"] as const;
 export type ProjectLocale = (typeof PROJECT_LOCALES)[number];
 
 export const translationSchema = z.object({
@@ -14,7 +14,7 @@ export const translationsSchema = z
     .object({
         en: translationSchema,
         ru: translationSchema,
-        ua: translationSchema,
+        uk: translationSchema,
         es: translationSchema,
     })
     .strict();
@@ -22,10 +22,10 @@ export const translationsSchema = z
 export const projectBaseSchema = z
     .object({
         translations: translationsSchema,
-        area: z.coerce.number().positive(),
-        price: z.coerce.number().positive(),
-        rentalYield: z.coerce.number().positive(),
-        resaleYield: z.coerce.number().positive(),
+        area: z.string().min(1, "Площадь является обязательным полем"),
+        price: z.string().min(1, "Цена является обязательным полем"),
+        rentalYield: z.string().min(1, "Доходность аренды является обязательным полем"),
+        resaleYield: z.string().min(1, "Доходность перепродажи является обязательным полем"),
     })
     .strict();
 
@@ -52,7 +52,7 @@ export const translationsUpdateSchema = z
     .object({
         en: translationUpdateSchema.optional(),
         ru: translationUpdateSchema.optional(),
-        ua: translationUpdateSchema.optional(),
+        uk: translationUpdateSchema.optional(),
         es: translationUpdateSchema.optional(),
     })
     .strict();
@@ -60,10 +60,10 @@ export const translationsUpdateSchema = z
 export const updateProjectBodySchema = z
     .object({
         translations: translationsUpdateSchema.optional(),
-        area: z.coerce.number().positive().optional(),
-        price: z.coerce.number().positive().optional(),
-        rentalYield: z.coerce.number().positive().optional(),
-        resaleYield: z.coerce.number().positive().optional(),
+        area: z.string().optional(),
+        price: z.string().optional(),
+        rentalYield: z.string().optional(),
+        resaleYield: z.string().optional(),
         imageUrls: z
             .array(z.string().trim().url())
             .max(5, "Максимум 5 изображений")
@@ -79,14 +79,14 @@ export const updateFormSchema = z.object({
         .object({
             en: translationUpdateSchema.optional(),
             ru: translationUpdateSchema.optional(),
-            ua: translationUpdateSchema.optional(),
+            uk: translationUpdateSchema.optional(),
             es: translationUpdateSchema.optional(),
         })
         .optional(),
-    area: z.coerce.number().nonnegative().optional(),
-    price: z.coerce.number().nonnegative().optional(),
-    rentalYield: z.coerce.number().nonnegative().optional(),
-    resaleYield: z.coerce.number().nonnegative().optional(),
+    area: z.string().optional(),
+    price: z.string().optional(),
+    rentalYield: z.string().optional(),
+    resaleYield: z.string().optional(),
     imageUrls: z.array(z.string()).max(5).optional(),
 });
 export type UpdateFormData = z.input<typeof updateFormSchema>;
@@ -103,7 +103,7 @@ const editTranslationsSchema = z
     .object({
         en: editTranslationSchema,
         ru: editTranslationSchema,
-        ua: editTranslationSchema,
+        uk: editTranslationSchema,
         es: editTranslationSchema,
     })
     .strict();
@@ -112,10 +112,10 @@ const editTranslationsSchema = z
 export const editFormSchema = z
     .object({
         translations: editTranslationsSchema,
-        area: z.coerce.number("Площадь является обязательным полем").positive("Число не может быть отрицательным"),
-        price: z.coerce.number("Цена является обязательным полем").positive("Число не может быть отрицательным"),
-        rentalYield: z.coerce.number("Доходность аренды является обязательным полем").positive("Введите доходность аренды"),
-        resaleYield: z.coerce.number("Доходность перепродажи является обязательным полем").positive("Введите доходность перепродажи"),
+        area: z.string().min(1, "Площадь является обязательным полем"),
+        price: z.string().min(1, "Цена является обязательным полем"),
+        rentalYield: z.string().min(1, "Доходность аренды является обязательным полем"),
+        resaleYield: z.string().min(1, "Доходность перепродажи является обязательным полем"),
         imageUrls: z
             .array(z.string().min(1))
             .min(1, "Добавьте хотя бы одно изображение")

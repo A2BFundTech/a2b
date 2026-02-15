@@ -137,7 +137,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 </span>
                             </div>
                             <span className="text-lg font-semibold text-[#917355]">
-                                {project.price.toLocaleString()} €
+                                {project.price} €
                             </span>
                         </div>
                         <div className={statCardClass}>
@@ -190,9 +190,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 </h3>
                             </div>
                             <p className="text-[#4a4541] text-sm md:text-base leading-relaxed whitespace-pre-line">
-                                +{t.description}
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, hic perferendis impedit sunt quis beatae, recusandae eos esse nam harum optio dolores debitis veritatis dicta molestiae veniam architecto quasi corporis?
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, hic perferendis impedit sunt quis beatae, recusandae eos esse nam harum optio dolores debitis veritatis dicta molestiae veniam architecto quasi corporis?
+                                {t.description}
                             </p>
                         </div>
                     )}

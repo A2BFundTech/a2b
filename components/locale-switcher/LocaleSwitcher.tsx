@@ -12,15 +12,15 @@ import { ChevronDownIcon } from "lucide-react";
 import { useTransition } from "react";
 
 /** Коды локалей приложения (должны совпадать с i18n и папками messages) */
-type Locale = "en" | "ru" | "ua" | "es";
+type Locale = "en" | "ru" | "uk" | "es";
 
-const LOCALES: readonly Locale[] = ["en", "ru", "ua", "es"];
+const LOCALES: readonly Locale[] = ["en", "ru", "uk", "es"];
 
 /** Подписи для переключателя по локали */
 const LOCALE_LABELS: Record<Locale, string> = {
     en: "EN",
     ru: "RU",
-    ua: "UA",
+    uk: "UA",
     es: "ES",
 };
 export function LocaleSwitcher() {
