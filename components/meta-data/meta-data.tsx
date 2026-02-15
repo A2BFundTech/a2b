@@ -41,8 +41,6 @@ export function getMetadataForLocale(locale: string): Metadata {
         
         manifest: "/site.webmanifest",
 
-        themeColor: "#000000",
-
         robots: {
             index: true,
             follow: true,

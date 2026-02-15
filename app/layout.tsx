@@ -5,12 +5,20 @@ import { Providers } from "./providers";
 import { Fraunces } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
+import { Metadata } from "next";
+import { getMetadataForLocale } from "@/components/meta-data/meta-data";
 
 export const viewport = {
     width: "device-width",
     initialScale: 1,
     maximumScale: 5,
+    themeColor: "#000000",
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    return getMetadataForLocale(locale);
+  }
 
 const fraunces = Fraunces({
     subsets: ["latin", "latin-ext"],
@@ -35,20 +43,6 @@ export default async function RootLayout({
 
     return (
         <html lang={locale}>
-            <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossOrigin="anonymous"
-                />
-                <meta name="msapplication-TileColor" content="#000000" />
-                <meta name="apple-mobile-web-app-capable" content="yes" />
-                <meta
-                    name="apple-mobile-web-app-status-bar-style"
-                    content="black-translucent"
-                />
-            </head>
             <body
                 className={`${geistSans.variable} ${fraunces.variable} antialiased`}
             >
