@@ -1,9 +1,12 @@
 {
     "Header": {
-        "nav_home": "О компании",
-        "nav_our_projects": "Наши проекты",
-        "nav_our_services": "Наши услуги",
-        "nav_contact_us": "Связаться с нами",
+        "nav_about_company": "О компании",
+        "nav_what_we_do": "Что мы делаем",
+        "nav_projects": "Проекты",
+        "nav_team": "Команда",
+        "nav_partners": "Партнёры",
+        "nav_investors": "Инвесторам",
+        "nav_contact": "Связаться",
         "menu_title": "Меню"
     },
     "Hero": {
@@ -142,28 +145,24 @@
         "show_more": "Показать ещё ({count})"
     },
     "OurPartners": {
-        "title": "Наши партнеры",
+        "title": "Наши партнёры",
         "partners": {
-            "partner_1": "Партнер 1",
-            "partner_2": "Партнер 2",
-            "partner_3": "Партнер 3",
-            "partner_4": "Партнер 4",
-            "partner_5": "Партнер 5",
-            "partner_6": "Партнер 6",
-            "partner_7": "Партнер 7",
-            "partner_8": "Партнер 8"
+            "partner_1_name": "Solnoma SL",
+            "partner_2_name": "Hlius Apartments SL",
+            "partner_3_name": "Legacy Innovation Investments SL",
+            "partner_4_name": "B2B Apart Valencia SL"
         }
     },
     "OurTeam": {
         "title": "Наша команда",
-        "member_1_name": "Иван Петров",
-        "member_1_role": "Генеральный директор",
-        "member_2_name": "Мария Иванова",
-        "member_2_role": "Руководитель отдела продаж",
-        "member_3_name": "Алексей Сидоров",
-        "member_3_role": "Главный архитектор",
-        "member_4_name": "Елена Васильева",
-        "member_4_role": "Юрист"
+        "member_1_name": "Адрей Усенин",
+        "member_1_role": "Управляющий партнёр",
+        "member_2_name": "Владимир Бездитный ",
+        "member_2_role": "Партнер",
+        "member_3_name": "Андрей Матяш",
+        "member_3_role": "Партнер",
+        "member_4_name": "Андрей ",
+        "member_4_role": "Партнер"
     },
 
     "Lifecycle": {
@@ -231,15 +230,18 @@
     },
     "Footer": {
         "title": "Контакты",
-        "address_label": "Адрес",
-        "address_line1": "Calle de Colón, 46004",
-        "address_line2": "Валенсия, Испания",
-        "phone_label": "Телефон",
-        "phone_line1": "+34 123 456 789",
-        "phone_line2": "+7 (495) 123-45-67",
-        "email_label": "Email",
-        "email_line1": "info@valencia-invest.com",
-        "email_line2": "support@valencia-invest.com",
+        "member_1_name": "Андрей Усенин",
+        "member_1_phone": "+34 123 456 789",
+        "member_1_email": "partner1@a2bfund.com",
+        "member_2_name": "Владимир Бездитный",
+        "member_2_phone": "+34 123 456 790",
+        "member_2_email": "partner2@a2bfund.com",
+        "member_3_name": "Андрей Матяш",
+        "member_3_phone": "+34 123 456 791",
+        "member_3_email": "partner3@a2bfund.com",
+        "member_4_name": "Андрей",
+        "member_4_phone": "+34 123 456 792",
+        "member_4_email": "partner4@a2bfund.com",
         "social_title": "Следите за нами в социальных сетях",
         "social_subtitle": "Актуальные новости и предложения"
     },

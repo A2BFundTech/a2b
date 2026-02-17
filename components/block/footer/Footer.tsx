@@ -1,23 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import {
-    MapPin,
-    Phone,
-    Mail,
-    Facebook,
-    Instagram,
-    Linkedin,
-} from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-
-type ContactItem = {
-    key: "address" | "phone" | "email";
-    icon: LucideIcon;
-    line1Key: string;
-    line2Key: string;
-};
 
 type SocialLink = {
     key: "facebook" | "instagram" | "linkedin";
@@ -25,26 +10,7 @@ type SocialLink = {
     href: string;
 };
 
-const contactItems: readonly ContactItem[] = [
-    {
-        key: "address",
-        icon: MapPin,
-        line1Key: "address_line1",
-        line2Key: "address_line2",
-    },
-    {
-        key: "phone",
-        icon: Phone,
-        line1Key: "phone_line1",
-        line2Key: "phone_line2",
-    },
-    {
-        key: "email",
-        icon: Mail,
-        line1Key: "email_line1",
-        line2Key: "email_line2",
-    },
-];
+const MEMBER_IDS = [1, 2, 3, 4] as const;
 
 const socialLinks: readonly SocialLink[] = [
     { key: "facebook", icon: Facebook, href: "#" },
@@ -57,39 +23,48 @@ export function Footer() {
 
     return (
         <footer id="footer" className="bg-[#F7F5F2] py-12 md:py-16">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 max-w-4xl">
                 {/* Заголовок и карточки контактов */}
-                <h2 className="font-heading text-3xl md:text-4xl font-semibold text-[#917355] text-center mb-10 md:mb-12">
+                <h2 className="font-heading text-3xl md:text-4xl font-semibold text-[#917355] text-left border-b border-[#917355] pb-2">
                     {t("title")}
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-14 md:mb-16">
-                    {contactItems.map(
-                        ({ key, icon: Icon, line1Key, line2Key }) => (
-                            <Card
-                                key={key}
-                                className="bg-[#ebe5df]/80 border-0 rounded-xl shadow-sm flex flex-col items-center justify-center text-center"
-                            >
-                                <CardContent className="flex flex-col items-center gap-2 p-6 w-full">
-                                    <div className="w-10 h-10 rounded-full bg-[#917355]/10 flex items-center justify-center shrink-0">
-                                        <Icon className="w-5 h-5 text-[#917355]" />
-                                    </div>
-                                    <p className="font-heading text-sm font-semibold text-[#917355]">
-                                        {t(`${key}_label`)}
-                                    </p>
-                                    <p className="text-[#968c81] text-sm leading-relaxed">
-                                        {t(line1Key)}
-                                        <br />
-                                        {t(line2Key)}
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        )
-                    )}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0 justify-between items-center py-10">
+                    <div className="grid grid-cols-1 gap-4 md:gap-6 max-w-4xl md:ml-5">
+                        {MEMBER_IDS.map((id) => (
+                            <div key={id}>
+                                <p className="font-heading text-[1.1rem] md:text-xl font-semibold text-[#917355]">
+                                    {t(`member_${id}_name`)}
+                                </p>
+                                <p className="text-[#968c81] text-[1rem] mt-1 ml-1">
+                                    {t(`member_${id}_phone`)}
+                                </p>
+                                <p className="text-[#968c81] text-[1rem] mt-1 ml-1">
+                                    {t(`member_${id}_email`)}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="flex flex-col items-center justify-center w-full">
+                        <div className="flex flex-col gap-1 md:gap-5 p-10 bg-white rounded-xl">
+                            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#917355]">
+                                A2B -
+                            </h1>
+                            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#917355] uppercase">
+                                Private
+                            </h1>
+                            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#917355] uppercase ">
+                                Equity
+                            </h1>
+                            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#917355] uppercase">
+                                Fund
+                            </h1>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Нижний блок: текст слева, иконки соцсетей справа */}
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 max-w-4xl mx-auto pt-6 border-t border-[#917355]/20">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mx-auto pt-6 border-t border-[#917355]/20">
                     <div>
                         <p className="font-heading text-lg md:text-xl font-semibold text-[#917355]">
                             {t("social_title")}

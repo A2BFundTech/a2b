@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,6 +16,13 @@ type MemberId = 1 | 2 | 3 | 4;
 
 const MEMBER_IDS: readonly MemberId[] = [1, 2, 3, 4];
 
+const MEMBER_IMAGE_PATHS: Record<MemberId, string> = {
+    1: "/assets/images/team/usenin.jpg",
+    2: "/assets/images/team/usenin.jpg",
+    3: "/assets/images/team/usenin.jpg",
+    4: "/assets/images/team/usenin.jpg",
+};
+
 function TeamCard({
     id,
     t,
@@ -25,7 +33,29 @@ function TeamCard({
     return (
         <Card className="bg-background border border-[#91735556] rounded-xl shadow-sm flex flex-col items-center transition-all duration-200 hover:shadow-md hover:-translate-y-0.5">
             <CardContent className="flex flex-col items-center p-6 w-full min-w-0">
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-[#ebe5df] flex items-center justify-center shrink-0 mb-4" />
+                <div className="relative w-32 h-32  rounded-full bg-[#ebe5df] shrink-0 mb-4 overflow-hidden">
+                    <Image
+                        src={MEMBER_IMAGE_PATHS[id]}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 96px, 112px"
+                        onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                            const placeholder = e.currentTarget.nextElementSibling;
+                            if (placeholder) (placeholder as HTMLElement).style.display = "flex";
+                        }}
+                    />
+                    <div
+                        className="absolute inset-0 bg-[#ebe5df] flex items-center justify-center"
+                        aria-hidden
+                        style={{ display: "none" }}
+                    >
+                        <span className="text-[#968c81] text-2xl font-medium">
+                            {t(`member_${id}_name`).charAt(0)}
+                        </span>
+                    </div>
+                </div>
                 <p className="text-[#917355] text-base md:text-lg font-semibold text-center mb-1">
                     {t(`member_${id}_name`)}
                 </p>
@@ -54,7 +84,6 @@ export function OurTeam() {
                     {t("title")}
                 </h2>
 
-                {/* Мобильная версия: карусель, одна карточка */}
                 <div className="md:hidden w-full mx-auto px-7">
                     <Carousel
                         opts={{ align: "start", loop: true }}
@@ -86,7 +115,6 @@ export function OurTeam() {
                     </Carousel>
                 </div>
 
-                {/* Планшет и десктоп: сетка, шире контейнер */}
                 <div className="hidden md:block max-w-6xl mx-auto">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                         {MEMBER_IDS.map((id, index) => (

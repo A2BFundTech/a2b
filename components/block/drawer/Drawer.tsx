@@ -15,12 +15,15 @@ import Link from "next/link";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
 
-type SectionId = "company" | "projects" | "services" | "contact";
+type SectionId = "company" | "projects" | "services" | "contact" | "team" | "partners" | "lifecycle";
 type HeaderNavKey =
-    | "nav_home"
-    | "nav_our_projects"
-    | "nav_our_services"
-    | "nav_contact_us";
+    | "nav_about_company"
+    | "nav_what_we_do"
+    | "nav_projects"
+    | "nav_team"
+    | "nav_partners"
+    | "nav_investors"
+    | "nav_contact";
 
 interface AnchorItem {
     id: SectionId;
@@ -28,10 +31,13 @@ interface AnchorItem {
 }
 
 const ANCHOR_ITEMS: AnchorItem[] = [
-    { id: "company", labelKey: "nav_home" },
-    { id: "services", labelKey: "nav_our_services" },
-    { id: "projects", labelKey: "nav_our_projects" },
-    { id: "contact", labelKey: "nav_contact_us" },
+    { id: "company", labelKey: "nav_about_company" },
+    { id: "services", labelKey: "nav_what_we_do" },
+    { id: "projects", labelKey: "nav_projects" },
+    { id: "team", labelKey: "nav_team" },
+    { id: "partners", labelKey: "nav_partners" },
+    { id: "lifecycle", labelKey: "nav_investors" },
+    { id: "contact", labelKey: "nav_contact" },
 ];
 
 export function CustomDrawer() {
