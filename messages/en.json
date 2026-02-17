@@ -1,13 +1,16 @@
 {
     "Header": {
-        "nav_home": "About the company",
-        "nav_our_projects": "Our Projects",
-        "nav_our_services": "Our Services",
-        "nav_contact_us": "Contact us",
+        "nav_about_company": "About the company",
+        "nav_what_we_do": "What we do",
+        "nav_projects": "Projects",
+        "nav_team": "Team",
+        "nav_partners": "Partners",
+        "nav_investors": "For investors",
+        "nav_contact": "Contact",
         "menu_title": "Menu"
     },
     "Hero": {
-        "title_line1": "A2B -PRIVATE",
+        "title_line1": "A2B - PRIVATE",
         "title_line2": "EQUITY",
         "title_line3": "FUND",
         "h2": "Real Estate Investments in Valencia",
@@ -143,26 +146,22 @@
     "OurPartners": {
         "title": "Our Partners",
         "partners": {
-            "partner_1": "Partner 1",
-            "partner_2": "Partner 2",
-            "partner_3": "Partner 3",
-            "partner_4": "Partner 4",
-            "partner_5": "Partner 5",
-            "partner_6": "Partner 6",
-            "partner_7": "Partner 7",
-            "partner_8": "Partner 8"
+            "partner_1_name": "Solnoma SL",
+            "partner_2_name": "Hlius Apartments SL",
+            "partner_3_name": "Legacy Innovation Investments SL",
+            "partner_4_name": "B2B Apart Valencia SL"
         }
     },
     "OurTeam": {
         "title": "Our Team",
-        "member_1_name": "Ivan Petrov",
-        "member_1_role": "CEO",
-        "member_2_name": "Maria Ivanova",
-        "member_2_role": "Sales Director",
-        "member_3_name": "Alexey Sidorov",
-        "member_3_role": "Chief Architect",
-        "member_4_name": "Elena Vasilyeva",
-        "member_4_role": "Legal Counsel"
+        "member_1_name": "Andrey Usenin",
+        "member_1_role": "Managing Partner",
+        "member_2_name": "Vladimir Bezditny",
+        "member_2_role": "Partner",
+        "member_3_name": "Andrey Matyash",
+        "member_3_role": "Partner",
+        "member_4_name": "Andrey",
+        "member_4_role": "Partner"
     },
 
     "Lifecycle": {
@@ -230,15 +229,18 @@
     },
     "Footer": {
         "title": "Contacts",
-        "address_label": "Address",
-        "address_line1": "Calle de Colón, 46004",
-        "address_line2": "Valencia, Spain",
-        "phone_label": "Phone",
-        "phone_line1": "+34 123 456 789",
-        "phone_line2": "+7 (495) 123-45-67",
-        "email_label": "Email",
-        "email_line1": "info@valencia-invest.com",
-        "email_line2": "support@valencia-invest.com",
+        "member_1_name": "Andrey Usenin",
+        "member_1_phone": "+34 123 456 789",
+        "member_1_email": "partner1@a2bfund.com",
+        "member_2_name": "Vladimir Bezditny",
+        "member_2_phone": "+34 123 456 790",
+        "member_2_email": "partner2@a2bfund.com",
+        "member_3_name": "Andrey Matyash",
+        "member_3_phone": "+34 123 456 791",
+        "member_3_email": "partner3@a2bfund.com",
+        "member_4_name": "Andrey",
+        "member_4_phone": "+34 123 456 792",
+        "member_4_email": "partner4@a2bfund.com",
         "social_title": "Follow us on social media",
         "social_subtitle": "Latest news and offers"
     },
