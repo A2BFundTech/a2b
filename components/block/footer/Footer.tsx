@@ -3,6 +3,12 @@
 import { useTranslations } from "next-intl";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import OrbitImages from "@/components/OrbitImages";
+import { Search, Scale, Users } from "lucide-react";
+import { IoHammerOutline } from "react-icons/io5";
+import { MdOutlineCalendarMonth } from "react-icons/md";
+import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type SocialLink = {
     key: "facebook" | "instagram" | "linkedin";
@@ -17,9 +23,31 @@ const socialLinks: readonly SocialLink[] = [
     { key: "instagram", icon: Instagram, href: "#" },
     { key: "linkedin", icon: Linkedin, href: "#" },
 ];
+const iconItems = [
+    <Search key="selection" className="w-full h-full text-[#917355]" />,
+    <Scale key="legal" className="w-full h-full text-[#917355]" />,
+    <IoHammerOutline key="hammer" className="w-full h-full text-[#917355]" />,
+    <MdOutlineCalendarMonth
+        key="calendar"
+        className="w-full h-full text-[#917355]"
+    />,
+    <HiOutlineBuildingOffice2
+        key="building"
+        className="w-full h-full text-[#917355]"
+    />,
+    <Users key="users" className="w-full h-full text-[#917355]" />,
+].map((Icon, i) => (
+    <div
+        key={i}
+        className="w-full h-full rounded-full bg-[#F7F5F2]  flex items-center justify-center"
+    >
+        {Icon}
+    </div>
+));
 
 export function Footer() {
     const t = useTranslations("Footer");
+    const isMobile = useIsMobile();
 
     return (
         <footer id="footer" className="bg-[#F7F5F2] py-12 md:py-16">
@@ -46,20 +74,33 @@ export function Footer() {
                         ))}
                     </div>
                     <div className="flex flex-col items-center justify-center w-full">
-                        <div className="flex flex-col gap-1 md:gap-5 p-10 bg-white rounded-xl">
-                            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#917355]">
-                                A2B -
-                            </h1>
-                            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#917355] uppercase">
-                                Private
-                            </h1>
-                            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#917355] uppercase ">
-                                Equity
-                            </h1>
-                            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#917355] uppercase">
-                                Fund
-                            </h1>
-                        </div>
+                        {isMobile ? (
+                            <div className="flex flex-col items-center justify-center bg-[#F7F5F2] p-4 rounded-xl border border-[#917355]">
+                                <h1 className="font-heading text-4xl md:text-5xl font-semibold text-[#917355] ">
+                                    A2B
+                                </h1>
+                            </div>
+                        ) : (
+                            <OrbitImages
+                                items={iconItems}
+                                shape="circle"
+                                radiusX={340}
+                                radiusY={80}
+                                rotation={-8}
+                                duration={30}
+                                itemSize={155}
+                                responsive={true}
+                                radius={380}
+                                direction="normal"
+                                fill
+                                paused={true}
+                                centerContent={
+                                    <h1 className="font-heading text-5xl md:text-5xl font-semibold text-[#917355] underline">
+                                        A2B
+                                    </h1>
+                                }
+                            />
+                        )}
                     </div>
                 </div>
 

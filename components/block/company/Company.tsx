@@ -1,13 +1,13 @@
 "use client";
 
 import { IoHammerOutline } from "react-icons/io5";
-import { MdOutlineCalendarMonth } from "react-icons/md"; // 10+ лет
-import { HiOutlineBuildingOffice2 } from "react-icons/hi2"; // 70+ проектов
-import { BiSearchAlt } from "react-icons/bi"; // Подбор объектов
-import { MdOutlineApartment } from "react-icons/md"; // Управление
-import { HiOutlineShieldCheck } from "react-icons/hi2"; // Минимизация рисков
-import { TbReportAnalytics } from "react-icons/tb"; // Прозрачность
-import { RiHandCoinLine } from "react-icons/ri"; // Собственный капитал
+import { MdOutlineCalendarMonth } from "react-icons/md"; 
+import { HiOutlineBuildingOffice2 } from "react-icons/hi2"; 
+import { BiSearchAlt } from "react-icons/bi"; 
+import { MdOutlineApartment } from "react-icons/md";
+import { HiOutlineShieldCheck } from "react-icons/hi2"; 
+import { TbReportAnalytics } from "react-icons/tb"; 
+import { RiHandCoinLine } from "react-icons/ri"; 
 
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
