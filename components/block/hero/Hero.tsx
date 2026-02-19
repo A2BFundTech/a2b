@@ -29,27 +29,20 @@ export const Hero = () => {
             {/* <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/50 to-transparent"/> */}
             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/60 to-black/30" />
             <div className="min-h-screen flex flex-col items-center pt-72 relative px-5 ">
-                <div className="flex flex-col items-center text-center max-w-3xl mb-4 backdrop-blur-md p-4 rounded-xl bg-white/10">
+                <div className="flex flex-col items-center justify-start gap-5 text-center max-w-2xl w-full mb-4 backdrop-blur-md px-1 py-10 rounded-xl bg-white/10">
                     <h1
-                        className={`font-bold text-white tracking-wide wrap-break-word ${titleSize} leading-tight`}
+                        className="font-bold text-white tracking-wide wrap-break-word leading-tight text-[2.5rem] md:text-[3.25rem] lg:text-[4rem]"
                     >
-                        {t("title_line1")}
+                        A2B
                     </h1>
-                    <h1
-                        className={`font-bold text-white tracking-wide wrap-break-word ${titleSize} leading-tight`}
-                    >
-                        {t("title_line2")} {t("title_line3")}
-                    </h1>
+
+                    <div className="text-white text-center md:text-base max-w-xl leading-relaxed wrap-break-word">
+                        <h2 className="text-xl text-white md:text-2xl mb-1">{t("h2")}.</h2>
+                        <span className="text-white italic text-md md:text-lg max-w-1/2">
+                            {t("h3")}
+                        </span>
+                    </div>
                 </div>
-
-                <p className="text-white text-center md:text-base max-w-xl leading-relaxed wrap-break-word">
-                    <span className="text-xl md:text-2xl">{t("h2")}.</span>
-                    <br />
-                    <span className="text-white italic text-md md:text-lg">
-                        {t("h3")}
-                    </span>
-                </p>
-
                 <Button
                     variant="custom"
                     className="mt-8 md:mt-10 shadow-xl py-5 px-8 text-base font-medium hover:scale-105 transition-transfor"

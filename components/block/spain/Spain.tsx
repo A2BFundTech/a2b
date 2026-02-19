@@ -79,7 +79,7 @@ export function Spain() {
                                 <p className="text-sm  mb-1">
                                     {t("fact_3")}
                                 </p>
-                                <p className="text-2xl font-semibold text-[#968c81] font-sans">
+                                <p className="text-2xl font-semibold text-[#968c81] ">
                                     {t("fact_3_value")}
                                 </p>
                             </div>
@@ -87,7 +87,7 @@ export function Spain() {
                                 <p className="text-sm  mb-1">
                                     {t("fact_4")}
                                 </p>
-                                <p className="text-2xl font-semibold text-[#968c81] font-sans">
+                                <p className="text-2xl font-semibold text-[#968c81]">
                                     {t("fact_4_value")}
                                 </p>
                             </div>
@@ -113,7 +113,7 @@ export function Spain() {
                                 <p className="text-xs">
                                     {t("summer_temperature")}
                                 </p>
-                                <p className="font-semibold text-[#968c81] font-sans">
+                                <p className="font-semibold text-[#968c81] ">
                                     {t("summer_temperature_value")}
                                 </p>
                             </div>
@@ -122,7 +122,7 @@ export function Spain() {
                                 <p className="text-xs">
                                     {t("winter_temperature")}
                                 </p>
-                                <p className="font-semibold text-[#968c81] font-sans">
+                                <p className="font-semibold text-[#968c81] ">
                                     {t("winter_temperature_value")}
                                 </p>
                             </div>
