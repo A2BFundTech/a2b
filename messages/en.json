@@ -155,13 +155,17 @@
     "OurTeam": {
         "title": "Our Team",
         "member_1_name": "Andrey Usenin",
-        "member_1_role": "Managing Partner",
+        "member_1_role": "Director of Development",
+        "member_1_second_role": "Managing Partner",
         "member_2_name": "Vladimir Bezditny",
-        "member_2_role": "Partner",
+        "member_2_role": "Legal Director",
+        "member_2_second_role": "Partner",
         "member_3_name": "Andrey Matyash",
-        "member_3_role": "Partner",
-        "member_4_name": "Andrey",
-        "member_4_role": "Partner"
+        "member_3_role": "Financial Director",
+        "member_3_second_role": "Partner",
+        "member_4_name": "Andrey Sakhipyanov",
+        "member_4_role": "Technical Director",
+        "member_4_second_role": "Partner"
     },
 
     "Lifecycle": {
@@ -238,7 +242,7 @@
         "member_3_name": "Andrey Matyash",
         "member_3_phone": "+34 123 456 791",
         "member_3_email": "partner3@a2bfund.com",
-        "member_4_name": "Andrey",
+        "member_4_name": "Andrey Sakhipyanov",
         "member_4_phone": "+34 123 456 792",
         "member_4_email": "partner4@a2bfund.com",
         "social_title": "Follow us on social media",

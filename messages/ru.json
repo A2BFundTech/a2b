@@ -156,13 +156,17 @@
     "OurTeam": {
         "title": "Наша команда",
         "member_1_name": "Адрей Усенин",
-        "member_1_role": "Управляющий партнёр",
+        "member_1_role": "Директор по развитию",
+        "member_1_second_role": "Управляющий партнёр",
         "member_2_name": "Владимир Бездитный ",
-        "member_2_role": "Партнер",
+        "member_2_role": "Юридический директор",
+        "member_2_second_role": "Партнер",
         "member_3_name": "Андрей Матяш",
-        "member_3_role": "Партнер",
-        "member_4_name": "Андрей ",
-        "member_4_role": "Партнер"
+        "member_3_role": "Фин. директор",
+        "member_3_second_role": "Партнер",
+        "member_4_name": "Андрей Сахипьянов",
+        "member_4_role": "Технический директор",
+        "member_4_second_role": "Партнер"
     },
 
     "Lifecycle": {
@@ -239,7 +243,7 @@
         "member_3_name": "Андрей Матяш",
         "member_3_phone": "+34 123 456 791",
         "member_3_email": "partner3@a2bfund.com",
-        "member_4_name": "Андрей",
+        "member_4_name": "Андрей Сахипьянов",
         "member_4_phone": "+34 123 456 792",
         "member_4_email": "partner4@a2bfund.com",
         "social_title": "Следите за нами в социальных сетях",

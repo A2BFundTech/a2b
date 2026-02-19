@@ -151,13 +151,17 @@
     "OurTeam": {
         "title": "Наша команда",
         "member_1_name": "Андрій Усенін",
-        "member_1_role": "Керівний партнер",
+        "member_1_role": "Директор з розвитку",
+        "member_1_second_role": "Керівний партнер",
         "member_2_name": "Володимир Бездітний",
-        "member_2_role": "Партнер",
+        "member_2_role": "Юридичний директор",
+        "member_2_second_role": "Партнер",
         "member_3_name": "Андрій Матяш",
-        "member_3_role": "Партнер",
-        "member_4_name": "Андрій",
-        "member_4_role": "Партнер"
+        "member_3_role": "Фін. директор",
+        "member_3_second_role": "Партнер",
+        "member_4_name": "Андрій Сахип'янов",
+        "member_4_role": "Технічний директор",
+        "member_4_second_role": "Партнер"
     },
     "Lifecycle": {
         "main_title": "Етапи співпраці",
@@ -233,7 +237,7 @@
         "member_3_name": "Андрій Матяш",
         "member_3_phone": "+34 123 456 791",
         "member_3_email": "partner3@a2bfund.com",
-        "member_4_name": "Андрій",
+        "member_4_name": "Андрій Сахип'янов",
         "member_4_phone": "+34 123 456 792",
         "member_4_email": "partner4@a2bfund.com",
         "social_title": "Слідкуйте за нами в соціальних мережах",

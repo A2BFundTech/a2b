@@ -20,7 +20,7 @@ const MEMBER_IMAGE_PATHS: Record<MemberId, string> = {
     1: "/assets/images/team/usenin.jpg",
     2: "/assets/images/team/usenin.jpg",
     3: "/assets/images/team/usenin.jpg",
-    4: "/assets/images/team/usenin.jpg",
+    4: "/assets/images/team/andres.jpg",
 };
 
 function TeamCard({
@@ -56,11 +56,14 @@ function TeamCard({
                         </span>
                     </div>
                 </div>
-                <p className="text-[#917355] text-base md:text-lg font-semibold text-center mb-1">
+                <p className="text-[#917355] text-base md:text-lg font-semibold  mb-1">
                     {t(`member_${id}_name`)}
                 </p>
                 <p className="text-[#968c81] text-sm text-center">
                     {t(`member_${id}_role`)}
+                </p>
+                <p className="text-[#968c81] text-sm text-center">
+                    {t(`member_${id}_second_role`)}
                 </p>
             </CardContent>
         </Card>
