@@ -1,17 +1,12 @@
 "use client";
 
 import { Button } from "../../ui/button";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { scrollToSection } from "@/lib/utils";
 import Image from "next/image";
 
 export const Hero = () => {
     const t = useTranslations("Hero");
-    const locale = useLocale();
-
-    const titleSize = ["ru", "uk"].includes(locale)
-        ? "text-[1.9rem] md:text-[3rem] lg:text-[3.5rem]"
-        : "text-[2.25rem] md:text-[3.25rem] lg:text-[4rem]";
 
     return (
         <section
@@ -28,7 +23,7 @@ export const Hero = () => {
             />
             {/* <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/50 to-transparent"/> */}
             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/60 to-black/30" />
-            <div className="min-h-screen flex flex-col items-center pt-72 relative px-5 ">
+            <div className="min-h-screen flex flex-col items-center h-full justify-center relative px-5 pt-15 md:pt-30">
                 <div className="flex flex-col items-center justify-start gap-5 text-center max-w-2xl w-full mb-4 backdrop-blur-md px-1 py-10 rounded-xl bg-white/10">
                     <h1
                         className="font-bold text-white tracking-wide wrap-break-word leading-tight text-[2.5rem] md:text-[3.25rem] lg:text-[4rem]"
