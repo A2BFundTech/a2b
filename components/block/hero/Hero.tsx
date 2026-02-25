@@ -14,7 +14,7 @@ export const Hero = () => {
             className="relative w-full overflow-hidden min-h-screen bg-black"
         >
             <Image
-                src="/assets/images/herow8.webp"
+                src="/assets/images/hero6.webp"
                 alt="Hero background"
                 fill
                 priority
@@ -22,9 +22,9 @@ export const Hero = () => {
                 sizes="100vw"
             />
             {/* <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/50 to-transparent"/> */}
-            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/60 to-black/30" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/45 via-black/40 to-black/10" />
             <div className="min-h-screen flex flex-col items-center h-full justify-center relative px-5 pt-15 md:pt-30">
-                <div className="flex flex-col items-center justify-start gap-5 text-center max-w-2xl w-full mb-4 backdrop-blur-md px-1 py-10 rounded-xl bg-white/10">
+                <div className="flex flex-col items-center justify-start gap-5 text-center max-w-2xl w-full mb-4 backdrop-blur-lg px-1 py-10 rounded-xl bg-white/10 border-gray-300/90 border-2">
                     <h1
                         className="font-bold text-white tracking-wide wrap-break-word leading-tight text-[2.5rem] md:text-[3.25rem] lg:text-[4.5rem]"
                     >
@@ -40,7 +40,7 @@ export const Hero = () => {
                 </div>
                 <Button
                     variant="custom"
-                    className="mt-8 md:mt-10 shadow-xl py-5 px-8 text-base font-medium hover:scale-105 transition-transfor"
+                    className="mt-8 md:mt-10 shadow-xl py-5 px-8 text-base font-medium hover:scale-105 transition-transfor border-gray-300/90 border-2"
                     onClick={() => scrollToSection("contact")}
                 >
                     {t("button")}

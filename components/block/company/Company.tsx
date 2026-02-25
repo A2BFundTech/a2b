@@ -85,7 +85,7 @@ export const Company = () => {
         >
             <div className="flex flex-col gap-20 items-center justify-center">
                 <div className="flex flex-col gap-4 items-center justify-center">
-                    <h1 className="text-5xl font-bold text-[#917355]">{t("titile")}</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold text-[#917355]">{t("titile")}</h1>
                     <p className="text-md text-center md:max-w-2xl">{t("description")}</p>
                 </div>
                 <div className="md:hidden w-full max-w-xs">
