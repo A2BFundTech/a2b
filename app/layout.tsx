@@ -22,16 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const fraunces = Fraunces({
     subsets: ["latin", "latin-ext"],
-    weight: ["300", "400", "500", "600", "700"],
+    weight: ["400", "600"],
     style: ["normal", "italic"],
     variable: "--font-fraunces",
 });
-
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
 
 export default async function RootLayout({
     children,
@@ -44,7 +38,7 @@ export default async function RootLayout({
     return (
         <html lang={locale}>
             <body
-                className={`${geistSans.variable} ${fraunces.variable} antialiased`}
+                className={`${fraunces.variable} antialiased`}
             >
                 <Providers>
                     <NextIntlClientProvider locale={locale} messages={messages}>

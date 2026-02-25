@@ -9,7 +9,7 @@ import { ProjectModal } from "./ProjectModal";
 import { Project } from "@/features/card/model/types";
 import { useProjects } from "@/features/card/hooks/useProjects";
 import { AnimatePresence, motion } from "motion/react";
-import { Loader2 } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const INITIAL_COUNT = 3;
 
@@ -30,9 +30,7 @@ export function OurProjects() {
 
     if (isLoading) {
         return (
-            <div className="flex justify-center items-center h-full">
-                <Loader2 className="size-10 animate-spin" />
-            </div>
+            <SkeletonProjects />
         )
     }
 
@@ -140,4 +138,13 @@ export function OurProjects() {
             </div>
         </section>
     );
+}
+
+
+function SkeletonProjects() {
+    return (
+        <div className="w-full max-w-none h-[50vh] justify-self-stretch">
+            <Skeleton className="w-full h-full bg-[#917355]"/>
+        </div>
+    )
 }

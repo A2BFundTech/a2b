@@ -6,7 +6,7 @@ import { requireAdmin } from "@/server/requireAuth/requireAuth";
 import { NextResponse } from "next/server";
 import { Readable } from "stream";
 
-const MAX_SIZE = 10 * 1024 * 1024;
+const MAX_SIZE = 15 * 1024 * 1024;
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 
 type HttpError = Error & { status?: number };
