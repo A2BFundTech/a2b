@@ -3,64 +3,68 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 
 const sendEmailSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(120, "Name too long"),
-  email: z.string().trim().email("Invalid email").max(254, "Email too long"),
-  phone: z
-    .string()
-    .trim()
-    .min(1, "Phone is required")
-    .max(40, "Phone too long"),
-  message: z.string().trim().max(2000, "Message too long").optional(),
+    name: z
+        .string()
+        .trim()
+        .min(1, "Name is required")
+        .max(120, "Name too long"),
+    email: z.string().trim().email("Invalid email").max(254, "Email too long"),
+    phone: z
+        .string()
+        .trim()
+        .min(1, "Phone is required")
+        .max(40, "Phone too long"),
+    message: z.string().trim().max(2000, "Message too long").optional(),
 });
 
 function escapeHtml(input: string): string {
-  return input
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
+    return input
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
 }
 
 export async function POST(req: Request) {
-  try {
-    const json: unknown = await req.json();
-    const parsed = sendEmailSchema.safeParse(json);
+    try {
+        const json: unknown = await req.json();
+        const parsed = sendEmailSchema.safeParse(json);
 
-    if (!parsed.success) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Validation error",
-          fields: parsed.error.flatten().fieldErrors,
-        },
-        { status: 400 }
-      );
-    }
+        if (!parsed.success) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    error: "Validation error",
+                    fields: parsed.error.flatten().fieldErrors,
+                },
+                { status: 400 },
+            );
+        }
 
-    const { name, email, phone, message } = parsed.data;
+        const { name, email, phone, message } = parsed.data;
 
-    const from = process.env.RESEND_FROM_EMAIL;
-    const to = process.env.RESEND_TO_EMAIL;
+        const from = process.env.RESEND_FROM_EMAIL;
+        const to = process.env.RESEND_TO_EMAIL;
 
-    if (!from || !to) {
-      return NextResponse.json(
-        { success: false, error: "Email provider is not configured" },
-        { status: 500 }
-      );
-    }
+        if (!from || !to) {
+            return NextResponse.json(
+                { success: false, error: "Email provider is not configured" },
+                { status: 500 },
+            );
+        }
 
-    const safeName = escapeHtml(name);
-    const safeEmail = escapeHtml(email);
-    const safePhone = escapeHtml(phone);
-    const safeMessage = escapeHtml(message || "Нет сообщения");
+        const safeName = escapeHtml(name);
+        const safeEmail = escapeHtml(email);
+        const safePhone = escapeHtml(phone);
+        const safeMessage = escapeHtml(message || "Нет сообщения");
 
-    await resend.emails.send({
-      from,
-      to,
-      replyTo: email,
-      subject: "Новая заявка с сайта",
-      html: `
+        const { data, error } = await resend.emails.send({
+            from,
+            to,
+            replyTo: email,
+            subject: "Новая заявка с сайта",
+            html: `
         <div style="margin:0;padding:24px;background:#f6f7fb;font-family:Arial,Helvetica,sans-serif;color:#1f2937;">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;">
             <tr>
@@ -101,21 +105,35 @@ export async function POST(req: Request) {
           </table>
         </div>
       `,
-      text: [
-        "Новая заявка на обратную связь",
-        `Имя: ${name}`,
-        `Email: ${email}`,
-        `Телефон: ${phone}`,
-        `Сообщение: ${message || "Нет сообщения"}`,
-      ].join("\n"),
-    });
+            text: [
+                "Новая заявка на обратную связь",
+                `Имя: ${name}`,
+                `Email: ${email}`,
+                `Телефон: ${phone}`,
+                `Сообщение: ${message || "Нет сообщения"}`,
+            ].join("\n"),
+        });
 
-    return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
-  } catch (error) {
-    console.error("send-email route error:", error);
-    return NextResponse.json(
-      { success: false, error: "Internal server error" },
-      { status: 500 }
-    );
-  }
+        if (error) {
+            console.error("Resend error:", error);
+            return NextResponse.json(
+                { success: false, error: error.message },
+                { status: 502 },
+            );
+        }
+        return NextResponse.json(
+            {
+                success: true,
+                message: "Email sent successfully",
+                id: data?.id ?? null,
+            },
+            { status: 200 },
+        );
+    } catch (error) {
+        console.error("send-email route error:", error);
+        return NextResponse.json(
+            { success: false, error: "Internal server error" },
+            { status: 500 },
+        );
+    }
 }
