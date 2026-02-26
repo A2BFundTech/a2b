@@ -10,7 +10,7 @@ export function getMetadataForLocale(locale: string): Metadata {
     const ogDescription = meta.ogDescription;
 
     const baseUrl =
-        process.env.NEXT_PUBLIC_SITE_URL ?? "https://a2b-fund.vercel.app";
+        process.env.NEXT_PUBLIC_SITE_URL;
     
     const localeMap: Record<string, string> = {
         ru: "ru_RU",
