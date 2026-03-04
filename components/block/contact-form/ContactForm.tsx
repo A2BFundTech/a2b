@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -30,6 +30,7 @@ export async function submitContactStub(
 
 export function ContactForm() {
     const t = useTranslations("ContactForm");
+    const locale = useLocale() as "en" | "ru" | "uk" | "es";
 
     const schema = z.object({
         name: z.string().min(1, t("name_required")),
@@ -63,7 +64,7 @@ export function ContactForm() {
     });
 
     const onSubmit = form.handleSubmit((data) => {
-        mutation.mutate(data);
+        mutation.mutate({ ...data, locale });
     });
 
     return (

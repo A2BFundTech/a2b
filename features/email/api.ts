@@ -3,6 +3,7 @@ export type SendEmailPayload = {
     email: string;
     phone: string;
     message?: string;
+    locale: "en" | "ru" | "uk" | "es";
 };
 
 export type SendEmailResult =
@@ -21,6 +22,7 @@ export async function sendContactEmail(
                 email: data.email,
                 phone: data.phone,
                 message: data.message ?? "",
+                locale: data.locale,
             }),
         });
 
