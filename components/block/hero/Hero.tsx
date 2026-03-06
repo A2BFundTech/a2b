@@ -26,7 +26,7 @@ export const Hero = () => {
             <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/40 to-transparent" />
             <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
 
-            <div className="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-44 pt-20">
+            <div className="relative min-h-screen flex flex-col justify-center px-3 md:px-16 lg:px-44 pt-20">
                 <div className="flex flex-col items-start max-w-xl gap-6">
 
                     <motion.div
@@ -42,7 +42,7 @@ export const Hero = () => {
                     </motion.div>
 
                     <motion.h1
-                        className="text-white font-bold leading-tight text-5xl md:text-6xl lg:text-6xl"
+                        className="text-white font-bold leading-tight text-5xl md:text-6xl lg:text-7xl"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
