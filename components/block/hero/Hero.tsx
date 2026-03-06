@@ -64,6 +64,7 @@ export const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
+                        className="w-full flex items-center justify-center"
                     >
                         <Button
                             variant="custom"
