@@ -18,8 +18,8 @@ const MEMBER_IDS: readonly MemberId[] = [1, 2, 3, 4];
 
 const MEMBER_IMAGE_PATHS: Record<MemberId, string> = {
     1: "/assets/images/team/usenin.jpg",
-    2: "/assets/images/team/usenin.jpg",
-    3: "/assets/images/team/usenin.jpg",
+    2: "/assets/images/team/bezditny.png",
+    3: "/assets/images/team/matyash.png",
     4: "/assets/images/team/andres.jpg",
 };
 
