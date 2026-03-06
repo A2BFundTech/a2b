@@ -36,7 +36,7 @@ export const Hero = () => {
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         <div className="w-1 h-12 bg-amber-400 rounded-full" />
-                        <span className="text-amber-400 text-4xl font-semibold tracking-[0.25em] uppercase">
+                        <span className="text-amber-400 text-5xl font-semibold tracking-[0.25em] uppercase">
                             A2B
                         </span>
                     </motion.div>
@@ -67,7 +67,7 @@ export const Hero = () => {
                     >
                         <Button
                             variant="custom"
-                            className="mt-2 py-5 px-8 text-base font-medium border border-amber-400/60 hover:border-amber-400 hover:scale-105 transition-all"
+                            className="mt-2 py-5 px-8 text-base font-medium  hover:scale-105 transition-all"
                             onClick={() => scrollToSection("contact")}
                         >
                             {t("button")}
