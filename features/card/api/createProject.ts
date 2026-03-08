@@ -16,6 +16,8 @@ export async function createProject(input: CreateProjectInput): Promise<Project>
       price: input.price,
       rentalYield: input.rentalYield,
       resaleYield: input.resaleYield,
+      quantityOfApartments: input.quantityOfApartments,
+      bookingLink: input.bookingLink,
     }),
   );
 

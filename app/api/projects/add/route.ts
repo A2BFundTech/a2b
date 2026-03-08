@@ -131,6 +131,8 @@ export async function POST(req: Request) {
             rentalYield,
             resaleYield,
             imageUrls,
+            quantityOfApartments,
+            bookingLink,
         } = parsed.data;
 
         const docRef = await adminDb.collection("projects").add({
@@ -140,6 +142,8 @@ export async function POST(req: Request) {
             rentalYield,
             resaleYield,
             imageUrls,
+            quantityOfApartments,
+            bookingLink,
             createdAt: new Date(),
         });
 
@@ -152,6 +156,8 @@ export async function POST(req: Request) {
                 rentalYield,
                 resaleYield,
                 imageUrls,
+                quantityOfApartments,
+                bookingLink,
             },
             { status: 201 },
         );

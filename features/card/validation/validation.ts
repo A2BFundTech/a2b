@@ -5,7 +5,10 @@ export type ProjectLocale = (typeof PROJECT_LOCALES)[number];
 
 export const translationSchema = z.object({
     name: z.string().trim().min(1, "Название является обязательным полем"),
-    description: z.string().trim().min(1, "Описание является обязательным полем"),
+    description: z
+        .string()
+        .trim()
+        .min(1, "Описание является обязательным полем"),
     location: z.string().trim().min(1, "Локация является обязательной полем"),
     status: z.string().trim().min(1, "Статус является обязательным полем"),
 });
@@ -19,13 +22,28 @@ export const translationsSchema = z
     })
     .strict();
 
+export const bookingLinkSchema = z
+    .string()
+    .trim()
+    .url("Неверная ссылка booking")
+    .optional()
+    .or(z.literal(""));
+
 export const projectBaseSchema = z
     .object({
         translations: translationsSchema,
         area: z.string().min(1, "Площадь является обязательным полем"),
         price: z.string().min(1, "Цена является обязательным полем"),
-        rentalYield: z.string().min(1, "Доходность аренды является обязательным полем"),
-        resaleYield: z.string().min(1, "Доходность перепродажи является обязательным полем"),
+        rentalYield: z
+            .string()
+            .min(1, "Доходность аренды является обязательным полем"),
+        resaleYield: z
+            .string()
+            .min(1, "Доходность перепродажи является обязательным полем"),
+        quantityOfApartments: z
+            .string()
+            .min(1, "Количество квартир является обязательным полем"),
+        bookingLink:bookingLinkSchema,
     })
     .strict();
 
@@ -34,6 +52,10 @@ export const formSchema = projectBaseSchema.extend({
         .array(z.string().trim().url("Неверный URL изображения"))
         .min(1, "Добавьте хотя бы одно изображение")
         .max(5, "Максимум 5 изображений"),
+    quantityOfApartments: z
+        .string()
+        .min(1, "Количество квартир является обязательным полем"),
+    bookingLink: bookingLinkSchema,
 });
 export type FormData = z.input<typeof formSchema>;
 
@@ -68,6 +90,8 @@ export const updateProjectBodySchema = z
             .array(z.string().trim().url())
             .max(5, "Максимум 5 изображений")
             .optional(),
+        quantityOfApartments: z.string().optional(),
+        bookingLink:bookingLinkSchema,
     })
     .strict();
 
@@ -87,6 +111,7 @@ export const updateFormSchema = z.object({
     price: z.string().optional(),
     rentalYield: z.string().optional(),
     resaleYield: z.string().optional(),
+    bookingLink: bookingLinkSchema,
     imageUrls: z.array(z.string()).max(5).optional(),
 });
 export type UpdateFormData = z.input<typeof updateFormSchema>;
@@ -114,12 +139,18 @@ export const editFormSchema = z
         translations: editTranslationsSchema,
         area: z.string().min(1, "Площадь является обязательным полем"),
         price: z.string().min(1, "Цена является обязательным полем"),
-        rentalYield: z.string().min(1, "Доходность аренды является обязательным полем"),
-        resaleYield: z.string().min(1, "Доходность перепродажи является обязательным полем"),
+        rentalYield: z
+            .string()
+            .min(1, "Доходность аренды является обязательным полем"),
+        resaleYield: z
+            .string()
+            .min(1, "Доходность перепродажи является обязательным полем"),
         imageUrls: z
             .array(z.string().min(1))
             .min(1, "Добавьте хотя бы одно изображение")
             .max(5, "Максимум 5 изображений"),
+        quantityOfApartments: z.string().optional(),
+        bookingLink: bookingLinkSchema,
     })
     .strict();
 export type EditFormData = z.infer<typeof editFormSchema>;

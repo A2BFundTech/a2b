@@ -23,6 +23,8 @@ function projectToFormData(project: Project): EditFormData {
         rentalYield: project.rentalYield,
         resaleYield: project.resaleYield,
         imageUrls: project.imageUrls,
+        quantityOfApartments: project.quantityOfApartments,
+        bookingLink: project.bookingLink ?? "",
     };
 }
 
@@ -64,6 +66,8 @@ export function useEditProjectForm(project: Project, onClose: () => void) {
             rentalYield: values.rentalYield,
             resaleYield: values.resaleYield,
             imageUrls: keptImageUrls,
+            quantityOfApartments: values.quantityOfApartments,
+            bookingLink: values.bookingLink,
         };
         const files = pendingImages.map((img) => img.file);
         if (files.length > 0) payload.files = files;

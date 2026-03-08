@@ -11,6 +11,8 @@ function buildPayload(input: UpdateProjectInput): Record<string, unknown> {
     if (rest.rentalYield !== undefined) payload.rentalYield = rest.rentalYield;
     if (rest.resaleYield !== undefined) payload.resaleYield = rest.resaleYield;
     if (rest.imageUrls !== undefined) payload.imageUrls = rest.imageUrls;
+    if (rest.quantityOfApartments !== undefined) payload.quantityOfApartments = rest.quantityOfApartments;
+    if (rest.bookingLink !== undefined) payload.bookingLink = rest.bookingLink;
     return payload;
 }
 

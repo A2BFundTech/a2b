@@ -256,6 +256,7 @@
         "price": "Цена",
         "rental_yield": "Прибыль от аренды",
         "resale_yield": "Доходность при перепродаже",
+        "quantity_of_apartments": "Колличество апартаментов",
         "description": "Описание",
         "close": "Закрыть"
     }

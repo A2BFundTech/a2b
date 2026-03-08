@@ -11,11 +11,27 @@ import {
 import { Input } from "@/components/ui/input";
 import type { EditFormData } from "@/features/card/validation/validation";
 
-const FIELDS: { name: Path<EditFormData>; label: string }[] = [
-    { name: "area", label: "Area" },
-    { name: "price", label: "Price" },
-    { name: "rentalYield", label: "Rental yield" },
-    { name: "resaleYield", label: "Resale yield" },
+const FIELDS: {
+    name: Path<EditFormData>;
+    label: string;
+    placeholder: string;
+    inputType?: "text" | "url";
+}[] = [
+    { name: "area", label: "Area", placeholder: "0" },
+    { name: "price", label: "Price", placeholder: "0" },
+    { name: "rentalYield", label: "Rental yield", placeholder: "0" },
+    { name: "resaleYield", label: "Resale yield", placeholder: "0" },
+    {
+        name: "quantityOfApartments",
+        label: "Quantity of apartments",
+        placeholder: "0",
+    },
+    {
+        name: "bookingLink",
+        label: "Booking link",
+        placeholder: "https://www.booking.com/...",
+        inputType: "url",
+    },
 ];
 
 type ProjectNumbersFieldsProps = {
@@ -31,7 +47,7 @@ export function ProjectNumbersFields({
         <div className="space-y-4 col-span-1 max-w-[500px]">
             <h3 className="text-sm font-medium">Numbers</h3>
 
-            {FIELDS.map(({ name, label }) => (
+            {FIELDS.map(({ name, label, placeholder, inputType = "text" }) => (
                 <FormField
                     key={name}
                     control={control}
@@ -41,8 +57,8 @@ export function ProjectNumbersFields({
                             <FormLabel>{label}</FormLabel>
                             <FormControl>
                                 <Input
-                                    type="text"
-                                    placeholder="0"
+                                    type={inputType}
+                                    placeholder={placeholder}
                                     {...field}
                                     value={String(field.value ?? "")}
                                     onChange={(e) => field.onChange(e.target.value)}

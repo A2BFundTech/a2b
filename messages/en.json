@@ -255,6 +255,7 @@
         "price": "Price",
         "rental_yield": "Rental yield",
         "resale_yield": "Resale yield",
+        "quantity_of_apartments": "Units",
         "description": "Description",
         "close": "Close"
     }

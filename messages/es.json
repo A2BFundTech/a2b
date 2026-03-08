@@ -255,6 +255,7 @@
         "price": "Precio",
         "rental_yield": "Rendimiento por alquiler",
         "resale_yield": "Rendimiento por reventa",
+        "quantity_of_apartments": "Cantidad de apartamentos",
         "description": "Descripción",
         "close": "Cerrar"
     }

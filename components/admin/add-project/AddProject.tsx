@@ -45,6 +45,8 @@ const DEFAULT_VALUES: FormData = {
     rentalYield: "",
     resaleYield: "",
     imageUrls: [],
+    quantityOfApartments: "",
+    bookingLink: "",
 };
 
 export const AddProject = () => {
@@ -86,6 +88,8 @@ export const AddProject = () => {
             price: values.price,
             rentalYield: values.rentalYield,
             resaleYield: values.resaleYield,
+            quantityOfApartments: values.quantityOfApartments,
+            bookingLink: values.bookingLink,
         };
         const files = pendingImages.map((img) => img.file);
 
@@ -304,6 +308,44 @@ export const AddProject = () => {
                                         <Input
                                             type="text"
                                             placeholder="0"
+                                            {...field}
+                                            value={String(field.value ?? "")}
+                                            onChange={(e) => field.onChange(e.target.value)}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="quantityOfApartments"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Quantity of apartments</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type="text"
+                                            placeholder="0"
+                                            {...field}
+                                            value={String(field.value ?? "")}
+                                            onChange={(e) => field.onChange(e.target.value)}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="bookingLink"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Booking link</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type="url"
+                                            placeholder="https://www.booking.com/..."
                                             {...field}
                                             value={String(field.value ?? "")}
                                             onChange={(e) => field.onChange(e.target.value)}

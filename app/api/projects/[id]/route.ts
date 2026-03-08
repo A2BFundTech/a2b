@@ -181,10 +181,12 @@ export async function PATCH(
             update.rentalYield = payload.rentalYield;
         if (payload.resaleYield !== undefined)
             update.resaleYield = payload.resaleYield;
+        if (payload.bookingLink !== undefined) update.bookingLink = payload.bookingLink;
         if (payload.imageUrls !== undefined || files.length > 0) {
             update.imageUrls = imageUrls;
         }
-
+        if (payload.quantityOfApartments !== undefined) update.quantityOfApartments = payload.quantityOfApartments;
+        
         if (Object.keys(update).length === 0) {
             const current = { ...existing, id: doc.id } as Record<string, unknown>;
             return NextResponse.json(current, { status: 200 });

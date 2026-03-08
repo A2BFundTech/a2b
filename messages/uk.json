@@ -250,6 +250,7 @@
         "price": "Ціна",
         "rental_yield": "Дохідність оренди",
         "resale_yield": "Дохідність перепродажу",
+        "quantity_of_apartments": "Кількість апартаментів",
         "description": "Опис",
         "close": "Закрити"
     }

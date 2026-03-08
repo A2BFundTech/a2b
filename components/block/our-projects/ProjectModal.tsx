@@ -7,6 +7,7 @@ import {
     Square,
     Banknote,
     TrendingUp,
+    Building,
     MapPin,
     BadgeCheck,
     FileText,
@@ -19,11 +20,13 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
+import { TbBrandBooking } from "react-icons/tb";
 
 import { placeholderImages } from "@/lib/utils";
 import { Project } from "@/features/card/model/types";
 import { useEffect, useState } from "react";
 import { ProjectLocale } from "@/features/card/validation/validation";
+import Link from "next/link";
 
 type ProjectModalProps = {
     project: Project;
@@ -52,6 +55,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
     }, []);
 
     const t = project.translations[locale];
+    const quantityOfApartments = project.quantityOfApartments;
 
     return (
         <div
@@ -159,7 +163,18 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 </span>
                             </div>
                             <span className="text-lg font-semibold text-[#917355]">
-                                +{" "}{project.resaleYield}%
+                                + {project.resaleYield}%
+                            </span>
+                        </div>
+                        <div className={statCardClass}>
+                            <div className="flex items-center justify-center gap-2">
+                                <Building className="md:size-4 text-[#917355]" />
+                                <span className="text-xs text-muted-foreground uppercase tracking-wide">
+                                    {tModal("quantity_of_apartments")}
+                                </span>
+                            </div>
+                            <span className="text-lg font-semibold text-[#917355]">
+                                {quantityOfApartments}
                             </span>
                         </div>
                     </div>
@@ -176,6 +191,19 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#91735512] px-3 py-1.5 text-sm text-foreground border border-[#91735520]">
                                 <BadgeCheck className="md:size-4 text-[#917355]" />
                                 {t.status}
+                            </span>
+                        )}
+                        {project.bookingLink && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#91735512] px-3 py-1.5 text-sm text-foreground border border-[#91735520]">
+                                <TbBrandBooking className="md:size-5 text-[#917355]" />
+                                <Link
+                                    href={project.bookingLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="underline hover:text-[#917355]"
+                                >
+                                    Booking
+                                </Link>
                             </span>
                         )}
                     </div>
@@ -210,7 +238,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         onClick={(e) => {
                             e.stopPropagation();
                             setActiveImage(null);
-                          }}
+                        }}
                         aria-label={tModal("close")}
                     >
                         <X className="size-8" />

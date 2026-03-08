@@ -15,6 +15,8 @@ export type Project = {
   price: string;
   rentalYield: string;
   resaleYield: string;
+  quantityOfApartments: string;
+  bookingLink?: string;
   imageUrls: string[];
 };
 
