@@ -200,7 +200,7 @@ export async function POST(req: Request) {
                       <td style="padding:20px 24px;">
         
                         <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                          <tr>
+                          <tr>s
 
                             <td style="line-height:1.6;vertical-align:top;">
                               <p style="margin:0 0 12px;">${localizedUserEmail.greeting}</p>

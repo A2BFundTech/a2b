@@ -18,6 +18,9 @@ type SocialLink = {
 
 const MEMBER_IDS = [1, 2, 3, 4] as const;
 
+const infoEmail = 'info@a2b-group.com'
+const contactEmail = 'contact@a2b-group.com'
+
 const socialLinks: readonly SocialLink[] = [
     { key: "facebook", icon: Facebook, href: "#" },
     { key: "instagram", icon: Instagram, href: "#" },
@@ -52,7 +55,6 @@ export function Footer() {
     return (
         <footer id="footer" className="bg-[#F7F5F2] py-12 md:py-16">
             <div className="container mx-auto px-4 max-w-4xl">
-                {/* Заголовок и карточки контактов */}
                 <h2 className="font-heading text-3xl md:text-4xl font-semibold text-[#917355] text-left border-b border-[#917355] pb-2">
                     {t("title")}
                 </h2>
@@ -67,11 +69,16 @@ export function Footer() {
                                 <p className="text-[#968c81] text-[1rem] mt-1 ml-1">
                                     {t(`member_${id}_phone`)}
                                 </p>
-                                <p className="text-[#968c81] text-[1rem] mt-1 ml-1">
-                                    {t(`member_${id}_email`)}
-                                </p>
                             </div>
                         ))}
+                        <div className="flex flex-col items-start justifu-center gap-1">
+                            <p className="text-[#968c81] text-[1rem] mt-1 ml-1">
+                                {infoEmail}
+                            </p>
+                            <p className="text-[#968c81] text-[1rem] mt-1 ml-1">
+                                {contactEmail}
+                            </p>
+                        </div>
                     </div>
                     <div className="flex flex-col items-center justify-center w-full">
                         {isMobile ? (
@@ -104,7 +111,6 @@ export function Footer() {
                     </div>
                 </div>
 
-                {/* Нижний блок: текст слева, иконки соцсетей справа */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mx-auto pt-6 border-t border-[#917355]/20">
                     <div>
                         <p className="font-heading text-lg md:text-xl font-semibold text-[#917355]">
