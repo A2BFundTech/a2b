@@ -18,7 +18,6 @@ type SocialLink = {
 
 const MEMBER_IDS = [1, 2, 3, 4] as const;
 
-const infoEmail = 'info@a2b-group.com'
 const contactEmail = 'contact@a2b-group.com'
 
 const socialLinks: readonly SocialLink[] = [
@@ -72,9 +71,6 @@ export function Footer() {
                             </div>
                         ))}
                         <div className="flex flex-col items-start justifu-center gap-1">
-                            <p className="text-[#968c81] text-[1rem] mt-1 ml-1">
-                                {infoEmail}
-                            </p>
                             <p className="text-[#968c81] text-[1rem] mt-1 ml-1">
                                 {contactEmail}
                             </p>
